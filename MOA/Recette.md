@@ -4,9 +4,9 @@
 
 ###Scénario n°1
 
-**But du scénario** : tester l'execution de l'application  
+**But du scénario** : Tester l'execution de l'application  
 **Déroulement** : Lancer l'application  
-**Résultat attendu** : l'application s'execute ! YO BITCHES !!!!!!  
+**Résultat attendu** : L'application s'execute ! YO BITCHES !!!!!!  
 
 ###Scénario n°2
 
