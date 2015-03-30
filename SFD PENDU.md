@@ -29,7 +29,7 @@ Le joueur a un identifiant(automatique).
 
 ##Les mots
 
-Ils sont d'une longueur comprise entre 2?? et 10?? lettres.
+Ils sont d'une longueur comprise entre 3 et 10 lettres.
 
 ##La partie
 
