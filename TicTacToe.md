@@ -11,8 +11,8 @@ En cas d’égalité au bout des 5 manches, des manches sont ajoutées en « mo
 ##Spécifications fonctionnelles
 Le score de la partie doit être indiqué (nombre de manches gagnés par joueurs).
 A la fin de la partie, on peut recommencer une partie.
-L’état de la partie doit être stocké au fur et à mesure.
-Ce stockage comprend : 
+L’état de la partie doit être sauvegardé au fur et à mesure.
+Cette sauvegarde comprend : 
     Le nom des joueurs
     Le score de chacun des joueurs
     L'état de la grille (placement des symboles pour éventuellement reprendre la partie).
