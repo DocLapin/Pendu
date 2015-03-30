@@ -12,3 +12,12 @@ En cas d’égalité au bout des 5 manches, des manches sont ajoutées en « mo
 Le score de la partie doit être indiqué (nombre de manches gagnés par joueurs).
 A la fin de la partie, on peut recommencer une partie.
 L’état de la partie doit être stocké au fur et à mesure.
+
+##Déroulement d'une partie
+**Début** : Le premier joueur inscrit son nom, le symbole "X" lui est attribué par défaut. Le deuxième joueur inscrit son nom, le symbole "O" lui est attribué par défaut.
+
+**Partie** : Le nom du joueur qui joue doit être affiché.
+
+**Fin de Manche** : Le nom du joueur vainqueur est affiché ansi que le score actuel de la partie.
+
+**Fin de Partie** : Le nom du joueur vainqueur est affiché ansi que le score final de la partie.
