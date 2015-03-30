@@ -10,6 +10,6 @@
 
 ###Scénario n°2
 
-**But du scénario** :   
-**Déroulement** :  
-**Résultat attendu** :  
+**But du scénario** :   Le joueur doit être capable d'entrer son nom  
+**Déroulement** :  L'utilisateur renseigne son nom lorsque le système lui demande  
+**Résultat attendu** :  L'application enregistre le nom saisi par l'utilisateur
