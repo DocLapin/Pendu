@@ -1,7 +1,7 @@
 #Tic-Tac-Toe
 
 ##Introduction
-**Tic-Tac-Toe** : Jeu à deux joueurs humains, en tour par tour, un joueur  affiche un symbole par tour, et dont le but est d’aligner trois symboles sur une grille de 3x3. 
+**Tic-Tac-Toe** : Jeu à deux joueurs humains, en tour par tour, et dont le but est d’aligner trois symboles sur une grille de 3x3. 
 
 **Manche** : Le jeu est constitué de cinq manches, une manche est finie quand un joueur a aligné 3 symboles ou que le jeu est bloqué. 
 
@@ -16,7 +16,7 @@ L’état de la partie doit être stocké au fur et à mesure.
 ##Déroulement d'une partie
 **Début** : Le premier joueur inscrit son nom, puis il choisit soit le symbole "X" ou "O", sans choix de sa part le symbole "X" lui est attribué par défaut. Le deuxième joueur inscrit son nom, le symbole attribué est celui restant disponible après le choix du joueur 1, sans choix du joueur 1 le symbole "O" lui est attribué par défaut.
 
-**Partie** : Le nom du joueur qui joue doit être affiché.
+**Partie** : Le nom du joueur qui joue doit être affiché. Le joueur  positionne son symbole sur la grille dans un emplacement disponible, une erreur s'affiche si il essaye d'ajouter son symbole sur une emplacement déjà pris. puis le tour passe au second joueur.
 
 **Fin de Manche** : Le nom du joueur vainqueur est affiché ansi que le score actuel de la partie.
 
