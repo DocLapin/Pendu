@@ -15,7 +15,6 @@
 **Résultat attendu** :  L'application enregistre le nom saisi par l'utilisateur
 
  
-
 ###Scénario n°3
 
 **But du scénario** : Tester le choix du symbole  
