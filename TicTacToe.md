@@ -14,7 +14,7 @@ A la fin de la partie, on peut recommencer une partie.
 L’état de la partie doit être stocké au fur et à mesure.
 
 ##Déroulement d'une partie
-**Début** : Le premier joueur inscrit son nom, le symbole "X" lui est attribué par défaut. Le deuxième joueur inscrit son nom, le symbole "O" lui est attribué par défaut.
+**Début** : Le premier joueur inscrit son nom, puis il choisit soit le symbole "X" ou "O", sans choix de sa part le symbole "X" lui est attribué par défaut. Le deuxième joueur inscrit son nom, le symbole attribué est celui restant disponible après le choix du joueur 1, sans choix du joueur 1 le symbole "O" lui est attribué par défaut.
 
 **Partie** : Le nom du joueur qui joue doit être affiché.
 
