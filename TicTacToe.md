@@ -12,6 +12,12 @@ En cas d’égalité au bout des 5 manches, des manches sont ajoutées en « mo
 Le score de la partie doit être indiqué (nombre de manches gagnés par joueurs).
 A la fin de la partie, on peut recommencer une partie.
 L’état de la partie doit être stocké au fur et à mesure.
+Ce stockage comprend : 
+    Le nom des joueurs
+    Le score de chacun des joueurs
+    L'état de la grille (placement des symboles pour éventuellement reprendre la partie).
+
+
 
 ##Déroulement d'une partie
 **Début** : Le premier joueur inscrit son nom, puis il choisit soit le symbole "X" ou "O", sans choix de sa part le symbole "X" lui est attribué par défaut. Le deuxième joueur inscrit son nom, le symbole attribué est celui restant disponible après le choix du joueur 1, sans choix du joueur 1 le symbole "O" lui est attribué par défaut.
