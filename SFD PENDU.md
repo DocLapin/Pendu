@@ -13,3 +13,15 @@ Le dictionnaire est stocké sous forme de fichier délimité, ce fichier est cha
 
 **Le fichier de dictionnaire**
 Le fichier se compose d'un mot par ligne terminée par un ';'
+
+##Le Plateau
+
+L'affichage du pendu se fait dans la console.
+
+##Le joueur
+
+##Les mots
+
+##La partie
+
+
