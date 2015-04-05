@@ -1,10 +1,50 @@
 #PENDU
 
-##SFD
+##Spécifications techniques
 
-Spécifications techniques du Pendu.
+## Environnement techniques
 
-But : Il s'agit de retrouver un mot choisi aléatoirement par l'ordinateur. Le joueur peut faire un nombre fini de propositions.
+Langage de programmation : C#.
+Gestionnaire de versions : Git.
+EDI : Microsoft Visual Studio.
+Outil pour les tests unitaires : intégré à Visual Studio.
+Outil pour l'injection de dépendance : plugin Autofac.
+
+## Conventions
+
+## Conventions de nommage
+
+Les champs non-statique commencent par un underscore et suivent le CamelCase (ex: _monChamp).
+Les champs statiques sont écrites en majuscule et un underscore sépare les différents mots (ex: MON_CHAMP_STATIQUE).
+Les variables locales suivent le CamelCase (ex: maVariableLocale).
+Les méthodes suivent le PascalCase, comme les propriétés (ex: MaMéthode).
+Le code et les commentaires sont en anglais.
+
+## Conventions de disposition
+
+Une seule instruction par ligne.
+Des parenthèses pour rendre apparentes les clauses d'une expression (ex: (val1 && val2) || (val3 && val4) )
+Des accolades pour chaque expression conditionnelle.
+Une accolade est seule sur toute une ligne.
+Ex :
+if (x)
+{
+	...
+}
+
+## Conventions de commentaires
+
+Chaque méthode et/ou champ doit être commenté(e)s.
+Les commentaires suivent le modèle conseillé par Microsoft.
+Les balises utilisées seront summary, param et returns.
+
+## Conventions d'organisations des tests unitaires
+
+Un fichier de tests par classe.
+Chaque développeur doit écrire les tests unitaires testant son code et les exécuter avant de faire un push (si tous les tests passent). 
+Chaque développeur doit exécuter tous les tests existants avant de faire un push (si tous les tests passent).
+
+## Composants
 
 ##Le Dictionnaire
 
@@ -33,4 +73,4 @@ Ils sont d'une longueur comprise entre 3 et 10 lettres.
 
 ##La partie
 
-La partie doit pouvoir être gagnée ou perdue ou abandonnée. À la fin d'une partie on propose d'en recommencer une. 
+La partie doit pouvoir être gagnée ou perdue ou abandonnée. À la fin d'une partie on propose d'en recommencer une.
