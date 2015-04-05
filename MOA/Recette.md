@@ -36,7 +36,7 @@
 ###Scénario n°6
 
 **But du scénario** : Tester que les lettres non découvertes soit afficher comme des astérisques  
-**Déroulement** : Lorsque le système demande à l'utilisateur de renseigner une lettre, il doit afficher les lettres manquantes en tant qu'astérisques (*)  
+**Déroulement** : Lorsque le système demande à l'utilisateur de renseigner une lettre, il doit afficher les lettres manquantes en tant qu'astérisques  
 **Résultat attendu** : Les lettres non découvertes s'affichent en tant qu'astériques.  
 
 ###Scénario n°7
