@@ -47,7 +47,7 @@
 
 ###Scénario n°8
 
-**But du scénario** : Tester que la lettre entrée est érronée
+**But du scénario** : Tester que la lettre entrée est érronée  
 **Déroulement** : Le système demande à l'utilisateur de rentrer une lettre puis vérifie que la lettre entrée correspond à une lettre présente dans le mot choisi dans le dictionnaire ou qu'elle n'a pas déja été saisie.  
 **Résultat attendu**: Le système affiche un message précisant que la lettre entrée est soit érronée, soit déja présente le cas échéant.  
 
