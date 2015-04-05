@@ -12,15 +12,16 @@ Outil pour l'injection de dépendance : plugin Autofac.
 
 ## Conventions
 
-## Conventions de nommage
+** Conventions de nommage
 
 Les champs non-statique commencent par un underscore et suivent le CamelCase (ex: _monChamp).
 Les champs statiques sont écrites en majuscule et un underscore sépare les différents mots (ex: MON_CHAMP_STATIQUE).
 Les variables locales suivent le CamelCase (ex: maVariableLocale).
 Les méthodes suivent le PascalCase, comme les propriétés (ex: MaMéthode).
 Le code et les commentaires sont en anglais.
+Les interfaces commencent par la lettre 'I'.
 
-## Conventions de disposition
+** Conventions de disposition
 
 Une seule instruction par ligne.
 Des parenthèses pour rendre apparentes les clauses d'une expression (ex: (val1 && val2) || (val3 && val4) )
@@ -32,13 +33,13 @@ if (x)
 	...
 }
 
-## Conventions de commentaires
+** Conventions de commentaires
 
 Chaque méthode et/ou champ doit être commenté(e)s.
 Les commentaires suivent le modèle conseillé par Microsoft.
 Les balises utilisées seront summary, param et returns.
 
-## Conventions d'organisations des tests unitaires
+** Conventions d'organisations des tests unitaires
 
 Un fichier de tests par classe.
 Chaque développeur doit écrire les tests unitaires testant son code et les exécuter avant de faire un push (si tous les tests passent). 
@@ -46,31 +47,102 @@ Chaque développeur doit exécuter tous les tests existants avant de faire un pu
 
 ## Composants
 
-##Le Dictionnaire
+** Dictionnaire (Dictionnary)
 
 Le dictionnaire contient tous les mots du jeu. Un mot est choisit aléatoirement au début de la partie par le programme.
 Le dictionnaire est stocké sous forme de fichier délimité, ce fichier est chargé au début du jeu.
 
-**Le fichier de dictionnaire**
-Le fichier se compose d'un mot par ligne terminée par un ';'
+** Signature des méthodes
 
-##Le Plateau
+public Dictionnary(IWordStorage ...)
+public void Load()
+public Word SelectAWord()
+public Word SelectAWord(int minimalSize, int maximalSize)
 
-L'affichage du pendu (image et mot à trouver masqué) se fait dans la console.
+** Stockage des mots (IWordStorage)
 
-##L'image
+Les mots seront stockées dans un fichier avec un mot par ligne terminée par un ';'
+La classe représentant ce fichier sera nommée WordFile.
+Néanmoins nous prévoyons le changement de type de stockage donc nous utiliserons une interface (IWordStorage) qui sera implémentée par WordFile.
 
-Elle est générée par un fichier plat comprenant tous les états de l'image. Apparemment 8 états.
+** Signature des méthodes
+
+public void Load()
+
+** Exclusif à la classe WordFile :
+
+public WordFile(String filePath)
+
+** Joueur (IPlayer)
+
+Représente un joueur (Player).
+Nous prévoyons l'utilisation d'un joueur non-humain donc nous utiliserons une interface (IPlayer) qui sera implémentée par Player.
+
+** Mot (Word)
+
+Représente les mots d'une longueur comprise entre 3 et 10 lettres.
+
+** Signature des méthodes
+
+public Word(String ou List<Letter> à définir)
+public int GetSize()
+public int GetNbLetterFound()
+public boolean IsLetterCorrect(Letter ...)
+
+** Jeu (Game)
+
+Représente le jeu.
+
+** Signature des méthodes
+
+public Game(Joueur ..., Dictionnary ..., IInput ..., IOutput ..., Rules ..., ICharacter ...)
+public void Play()
+public void Reset()
+public void Quit()
+public boolean IsFinished()
+public int GetNbTry()
+public void ShowRules()
+public void ShowCharacter()
+public void ShowWord()
+public void Ask()
+
+** Règles (Rules)
+
+Représente toutes les données concernant les règles du jeu (longueur minimale et maximales des mots ...)
+
+** Signature des méthodes
+
+public Rules(IOutput ...)
+public void ShowRules(Rules ...)
++ attributs ou méthodes statiques pour représenter les règles (longueur minimale des mots ...)
+
+** Sortie (IOutput)
+
+L'affichage pourra se faire dans la console mais nous prévoyons la nécessité d'avoir une autre sortie.
+La classe OutputConsole implémentera donc l'interface IOutput
+
+** Signature des méthodes
+
+public void ShowRules(Rules ...)
+public void ShowCharacter(Character ...)
+public void ShowWord(Word ...)
+
+** Entrée (IInput)
+
+Les saisies pourront se faire dans la console mais nous prévoyons la nécessité d'avoir une autre entrée.
+La classe InputConsole implémentera donc l'interface IInput
+
+** Signature des méthodes
+
+TO DO
+
+** Personnage (Character)
+
+Image générée par un fichier plat comprenant tous les états de l'image. Il y a 8 états.
 Elle est affichée état par état.
 
-##Le joueur
+(il faudra une interface pour ne pas être lié à un fichier plat)
 
-Le joueur a un identifiant(automatique). 
+** Signature des méthodes
 
-##Les mots
-
-Ils sont d'une longueur comprise entre 3 et 10 lettres.
-
-##La partie
-
-La partie doit pouvoir être gagnée ou perdue ou abandonnée. À la fin d'une partie on propose d'en recommencer une.
+TO DO
