@@ -1,4 +1,4 @@
-#PENDU
+﻿#PENDU
 
 ##Spécifications techniques
 
@@ -134,7 +134,10 @@ La classe InputConsole implémentera donc l'interface IInput
 
 ** Signature des méthodes
 
-TO DO
+public String saisieLettre()
+public String saisieMot()
+public Boolean isMot()
+public Boolean isLettre()
 
 ** Personnage (Character)
 
@@ -145,4 +148,7 @@ Elle est affichée état par état.
 
 ** Signature des méthodes
 
-TO DO
+public void setFichier(Fichier...)
+public void getEtatInitial()
+public void getEtatSuivant()
+public Boolean isFinal()
