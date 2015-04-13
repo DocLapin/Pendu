@@ -17,6 +17,7 @@ namespace ProjetPendu
         private ICharacter _character;
 
         private int _nbTry { get; private set; }
+        private bool _isFinished { get; private set; }
 
         /// <summary>
         /// Game constructor with fields
@@ -43,8 +44,6 @@ namespace ProjetPendu
         public void Play()
         {
             _nbTry = 0;
-
-
                 
         }
 
@@ -62,17 +61,24 @@ namespace ProjetPendu
         /// Is the game finished ?
         /// </summary>
         /// <returns> True if the game is finished </returns>
-        private bool IsFinished();
+        private bool IsFinished(){
+            return _isFinished;
+        }
 
         /// <summary>
         /// show the rules
         /// </summary>
-        private void ShowRules();
+        private void ShowRules()
+        {
+            _rules.GetRules();
+        }
 
         /// <summary>
         /// show the letter played
         /// </summary>
-        private void ShowCharacter();
+        private void ShowCharacter(){
+
+        }
 
         /// <summary>
         /// show the word played
