@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace ProjetPendu
 {
@@ -28,30 +29,37 @@ namespace ProjetPendu
 
         public String[] GetEtat(int numero)
         {
-            String numdep = numero.ToString();
-            numero++;
-            String numfin = numero.ToString();
-            int lignedebut = NUMERO_MIN_STATE;
-            int lignefin = NUMERO_NEXT_STATE;
-            String[] lines = System.IO.File.ReadAllLines(@filepath);
-            String[] Sublines;
-            for (int i =0; i<=lines.Length ;i++)
+            if (!File.Exists(filepath))
             {
-                if (lines[i].Contains(numdep))
-                {
-                    lignedebut = i+1;
-                    
-                }
-                if (lines[i].Contains(numfin))
-                {
-                    lignefin = i-1;
-                }
-                    
+                throw new FileNotFoundException();
             }
+            else
+            {
+                String numdep = numero.ToString();
+                numero++;
+                String numfin = numero.ToString();
+                int lignedebut = NUMERO_MIN_STATE;
+                int lignefin = NUMERO_NEXT_STATE;
+                String[] lines = File.ReadAllLines(@filepath);
+                String[] Sublines;
+                for (int i = 0; i <= lines.Length; i++)
+                {
+                    if (lines[i].Contains(numdep))
+                    {
+                        lignedebut = i + 1;
 
-            Sublines = SubArray<String>(lines, lignedebut, lignefin);
+                    }
+                    if (lines[i].Contains(numfin))
+                    {
+                        lignefin = i - 1;
+                    }
 
-            return Sublines;
+                }
+
+                Sublines = SubArray<String>(lines, lignedebut, lignefin);
+
+                return Sublines;
+            }
         }
 
         public bool IsFinal(int numero)
