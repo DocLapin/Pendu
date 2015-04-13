@@ -52,6 +52,7 @@
     <Compile Include="IOutput.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IWordStorage.cs" />
+    <Compile Include="Output.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

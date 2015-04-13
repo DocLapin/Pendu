@@ -12,7 +12,7 @@ namespace ProjetPendu
         /// Read the next input 
         /// </summary>
         /// <returns> Input pressed by the player</returns>
-        public String Input()
+        public String input()
         {
             return Console.ReadLine();
         }
