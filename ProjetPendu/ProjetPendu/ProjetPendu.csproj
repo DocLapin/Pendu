@@ -46,6 +46,7 @@
     <Compile Include="Input.cs" />
     <Compile Include="Iinput.cs" />
     <Compile Include="Dictionary.cs" />
+    <Compile Include="ICharacter.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IWordStorage.cs" />
     <Compile Include="Player.cs" />
