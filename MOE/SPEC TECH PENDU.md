@@ -99,12 +99,11 @@ public Game(Joueur ..., Dictionnary ..., IInput ..., IOutput ..., Rules ..., ICh
 public void Play()  
 public void Reset()  
 public void Quit()  
-public boolean IsFinished()  
-public int GetNbTry()  
+public boolean IsFinished()
 public void ShowRules()  
 public void ShowCharacter()  
 public void ShowWord()  
-public void Ask()  
+public string Ask()  
 
 ** Règles (Rules)
 
