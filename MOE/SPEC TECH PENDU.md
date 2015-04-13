@@ -111,8 +111,7 @@ public void Ask()
 Représente toutes les données concernant les règles du jeu (longueur minimale et maximales des mots ...)
 
 ** Signature des méthodes
-
-public Rules(IOutput ...)  
+ 
 public void ShowRules(Rules ...)  
 + attributs ou méthodes statiques pour représenter les règles (longueur minimale des mots ...)
 
