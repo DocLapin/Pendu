@@ -7,7 +7,18 @@ namespace ProjetPendu
 {
     public class Character : ICharacter
     {
+        private static readonly int NUMERO_MAX_STATE = 8;
+        private static readonly int NUMERO_MIN_STATE = 1;
+        private static readonly int NUMERO_NEXT_STATE = 7;
+
         private string filepath;
+
+        public static T[] SubArray<T>(this T[] data, int index, int length)
+        {
+            T[] result = new T[length];
+            Array.Copy(data, index, result, 0, length);
+            return result;
+        }
 
         public void SetFichier(string fileName)
         {
@@ -17,12 +28,35 @@ namespace ProjetPendu
 
         public String[] GetEtat(int numero)
         {
-            throw new NotImplementedException();
+            String numdep = numero.ToString();
+            numero++;
+            String numfin = numero.ToString();
+            int lignedebut = NUMERO_MIN_STATE;
+            int lignefin = NUMERO_NEXT_STATE;
+            String[] lines = System.IO.File.ReadAllLines(@filepath);
+            String[] Sublines;
+            for (int i =0; i<=lines.Length ;i++)
+            {
+                if (lines[i].Contains(numdep))
+                {
+                    lignedebut = i+1;
+                    
+                }
+                if (lines[i].Contains(numfin))
+                {
+                    lignefin = i-1;
+                }
+                    
+            }
+
+            Sublines = SubArray<String>(lines, lignedebut, lignefin);
+
+            return Sublines;
         }
 
-        public bool IsFinal()
+        public bool IsFinal(int numero)
         {
-            throw new NotImplementedException();
+            return numero == NUMERO_MAX_STATE;
         }
     }
 }

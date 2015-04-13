@@ -93,6 +93,9 @@ namespace ProjetPendu
         /// <summary>
         /// what the player wants to input
         /// </summary>
-        private void Ask();
+	private string Ask()
+        {
+            return _input.Input();
+        }
     }
 }

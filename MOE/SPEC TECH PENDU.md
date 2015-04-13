@@ -103,7 +103,7 @@ public boolean IsFinished()
 public void ShowRules()  
 public void ShowCharacter()  
 public void ShowWord()  
-public void Ask()  
+public string Ask()  
 
 ** Règles (Rules)
 
