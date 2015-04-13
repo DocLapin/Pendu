@@ -134,10 +134,7 @@ La classe InputConsole implémentera donc l'interface IInput
 
 ** Signature des méthodes
 
-public String SaisieLettre()  
-public String SaisieMot()  
-public Boolean IsMot()  
-public Boolean IsLettre()  
+public String Saisie()
 
 ** Personnage (Character)
 
