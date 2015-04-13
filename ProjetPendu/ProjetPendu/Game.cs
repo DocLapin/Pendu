@@ -45,11 +45,15 @@ namespace ProjetPendu
         public void Play()
         {
             _nbTry = 0;
+            Word word = _dictionary.SelectAWord();
 
             while (_nbTry < MAX_TRY )
             {
-
+                ShowCharacter(_nbTry);
+                Ask();
+                ShowWord(word);
             }//End while
+            ShowCharacter(_nbTry);
         }
 
         /// <summary>
@@ -66,7 +70,8 @@ namespace ProjetPendu
         /// Is the game finished ?
         /// </summary>
         /// <returns> True if the game is finished </returns>
-        private bool IsFinished(){
+        private bool IsFinished()
+        {
             return _isFinished;
         }
 
@@ -75,25 +80,29 @@ namespace ProjetPendu
         /// </summary>
         private void ShowRules()
         {
-            _rules.GetRules();
+            _output.ShowRules(_rules);
         }
 
         /// <summary>
         /// show the letter played
         /// </summary>
-        private void ShowCharacter(){
-
+        private void ShowCharacter(int numcharacter)
+        {
+            _output.ShowCharacter(_character, numcharacter);
         }
 
         /// <summary>
         /// show the word played
         /// </summary>
-        private void ShowWord();
-
+        private void ShowWord(Word word)
+        {
+            _output.ShowWord(word);
+        }
+        
         /// <summary>
         /// what the player wants to input
         /// </summary>
-	private string Ask()
+	    private string Ask()
         {
             return _input.Input();
         }

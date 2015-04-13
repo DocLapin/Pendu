@@ -17,9 +17,8 @@ namespace ProjetPendu
             Console.Write(r.GetRules());
         }
 
-        public void ShowCharacter(Character c)
+        public void ShowCharacter(ICharacter character, int numcharacter)
         {
-            throw new NotImplementedException();
         }
 
         public void ShowWord(Word w)
