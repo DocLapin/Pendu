@@ -8,6 +8,7 @@ namespace ProjetPendu
 {
     public class Game
     {
+        private static readonly int MAX_TRY = 8;
 
         private Player _player;
         private Dictionary _dictionary;
@@ -44,7 +45,11 @@ namespace ProjetPendu
         public void Play()
         {
             _nbTry = 0;
-                
+
+            while (_nbTry < MAX_TRY )
+            {
+
+            }//End while
         }
 
         /// <summary>
