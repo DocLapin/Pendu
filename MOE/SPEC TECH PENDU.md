@@ -1,4 +1,4 @@
-#PENDU
+﻿#PENDU
 
 ##Spécifications techniques
 
@@ -54,10 +54,10 @@ Le dictionnaire est stocké sous forme de fichier délimité, ce fichier est cha
 
 ** Signature des méthodes
 
-public Dictionnary(IWordStorage ...)
-public void Load()
-public Word SelectAWord()
-public Word SelectAWord(int minimalSize, int maximalSize)
+public Dictionnary(List<Word> ...)
+public void Load()  
+public Word SelectAWord()  
+public Word SelectAWord(int minimalSize, int maximalSize)  
 
 ** Stockage des mots (IWordStorage)
 
@@ -84,10 +84,10 @@ Représente les mots d'une longueur comprise entre 3 et 10 lettres.
 
 ** Signature des méthodes
 
-public Word(String ou List<Letter> à définir)
-public int GetSize()
-public int GetNbLetterFound()
-public boolean IsLetterCorrect(Letter ...)
+public Word(String)  
+public int GetSize()  
+public int GetNbLetterFound()  
+public boolean IsLetterCorrect(Letter ...)  
 
 ** Jeu (Game)
 
@@ -95,16 +95,16 @@ Représente le jeu.
 
 ** Signature des méthodes
 
-public Game(Joueur ..., Dictionnary ..., IInput ..., IOutput ..., Rules ..., ICharacter ...)
-public void Play()
-public void Reset()
-public void Quit()
-public boolean IsFinished()
-public int GetNbTry()
-public void ShowRules()
-public void ShowCharacter()
-public void ShowWord()
-public void Ask()
+public Game(Joueur ..., Dictionnary ..., IInput ..., IOutput ..., Rules ..., ICharacter ...)  
+public void Play()  
+public void Reset()  
+public void Quit()  
+public boolean IsFinished()  
+public int GetNbTry()  
+public void ShowRules()  
+public void ShowCharacter()  
+public void ShowWord()  
+public void Ask()  
 
 ** Règles (Rules)
 
@@ -112,8 +112,8 @@ Représente toutes les données concernant les règles du jeu (longueur minimale
 
 ** Signature des méthodes
 
-public Rules(IOutput ...)
-public void ShowRules(Rules ...)
+public Rules(IOutput ...)  
+public void ShowRules(Rules ...)  
 + attributs ou méthodes statiques pour représenter les règles (longueur minimale des mots ...)
 
 ** Sortie (IOutput)
@@ -123,9 +123,9 @@ La classe OutputConsole implémentera donc l'interface IOutput
 
 ** Signature des méthodes
 
-public void ShowRules(Rules ...)
-public void ShowCharacter(Character ...)
-public void ShowWord(Word ...)
+public void ShowRules(Rules ...)  
+public void ShowCharacter(Character ...)  
+public void ShowWord(Word ...)  
 
 ** Entrée (IInput)
 
@@ -134,7 +134,10 @@ La classe InputConsole implémentera donc l'interface IInput
 
 ** Signature des méthodes
 
-TO DO
+public String saisieLettre()  
+public String saisieMot()  
+public Boolean isMot()  
+public Boolean isLettre()  
 
 ** Personnage (Character)
 
@@ -145,4 +148,7 @@ Elle est affichée état par état.
 
 ** Signature des méthodes
 
-TO DO
+public void setFichier(String fileName)  
+public void getEtatInitial()  
+public void getEtatSuivant()  
+public Boolean isFinal()  
