@@ -19,14 +19,17 @@ namespace ProjetPendu
         /// </summary>
         /// <param name="num">The number of the state to get</param>
         /// <returns>String arrray of the state</returns>
-        string[] GetEtat(int num);
+	String[] GetEtat(int num);
+
 
 
 
         /// <summary>
         /// Tell if the previous state showed is the final state
         /// </summary>
+        /// <param name="num">the number of the state you want to test</param>
         /// <returns>True or False</returns>
-        bool IsFinal();
+	Boolean IsFinal(int num);
+
     }
 }
