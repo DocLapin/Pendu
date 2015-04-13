@@ -6,7 +6,7 @@
 
 **But du scénario** : Tester l'execution de l'application  
 **Déroulement** : Lancer l'application  
-**Résultat attendu** : L'application s'execute ! YO BITCHES !!!!!!  
+**Résultat attendu** : L'application s'execute.
 
 ###Scénario n°2
 
