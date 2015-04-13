@@ -89,5 +89,14 @@ namespace ProjetPenduTests
             int maxLength = -1;
             Assert.IsFalse(word.GotCorrectSize(minLength, maxLength));
         }
+
+        [TestMethod]
+        public void TestGotCorrectState()
+        {
+            Word word = new Word("Word");
+            string currentState = word.GetCurrentState();
+            string expectedState = "****";
+            Assert.AreEqual(expectedState, currentState);
+        }
     }
 }

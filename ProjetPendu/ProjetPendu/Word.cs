@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace Pendu
 {
     public class Word
     {
         private string _wordString;
-
+        private bool[] _checkTable;
         public string WordString
         {
             get { return _wordString; }
@@ -28,6 +29,7 @@ namespace Pendu
             else
             {
                 WordString = word;
+                _checkTable = new bool[word.Length];
             }
         }
 
@@ -51,5 +53,29 @@ namespace Pendu
             return ((wordLength >= minLength) && (wordLength <= maxLength));
         }
 
+        /// <summary>
+        /// Get word state which represent the word
+        /// with the found letters.
+        /// * if the letter isn't found 
+        /// [letter] otherwise. 
+        /// </summary>
+        /// <returns>the word state</returns>
+        public string GetCurrentState()
+        {
+            string state = String.Empty;
+            int length = WordString.Length;
+            for (int i = 0; i < length; i++)
+            {
+                if (_checkTable[i])
+                {
+                    state = state + WordString.Substring(i, i);
+                }
+                else
+                {
+                    state = state + '*';
+                }
+            }
+            return state;
+        }
     }
 }
