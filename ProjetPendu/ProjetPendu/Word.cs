@@ -77,5 +77,30 @@ namespace Pendu
             }
             return state;
         }
+
+        public bool check(string word) 
+        {
+            char[] wordChar = WordString.ToCharArray();
+            char[] messageChar = word.ToCharArray();
+            if(word.Length == 1)
+            {
+                bool check = false;
+                char letter = messageChar[0];
+                for (int i = 0; i < wordChar.Length; i++)
+                {
+                    if (wordChar[i] == letter)
+                    {
+                        _checkTable[i] = true;
+                        check = true;
+                    }
+                    // no else
+                }
+                return check;
+            }
+            else
+            {
+               return wordChar.Equals(messageChar);
+            }
+        }
     }
 }
