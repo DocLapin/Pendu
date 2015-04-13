@@ -44,7 +44,7 @@ namespace ProjetPendu
         public void Play()
         {
             _nbTry = 0;
-                
+            ask
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace ProjetPendu
         /// </summary>
         private string Ask()
         {
-            return _input.input();
+            return _input.Input();
         }
     }
 }
