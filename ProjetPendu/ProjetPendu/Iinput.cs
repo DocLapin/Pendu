@@ -8,6 +8,6 @@ namespace ProjetPendu
 {
     interface IInput
     {
-         String Input();
+         String input();
     }
 }
