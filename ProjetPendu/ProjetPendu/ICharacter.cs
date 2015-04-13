@@ -17,12 +17,11 @@ namespace ProjetPendu
         /// <summary>
         /// Get the initial state of the pendu (generaly the ground)
         /// </summary>
-        public void GetEtatInitial();
+        /// <param name="num">The number of the state to get</param>
+        /// <returns>String arrray of the state</returns>
+        public String[] GetEtat(int num);
 
-        /// <summary>
-        /// Get the next state of the pendu
-        /// </summary>
-        public void GetEtatSuivant();
+
 
         /// <summary>
         /// Tell if the previous state showed is the final state

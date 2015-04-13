@@ -15,12 +15,7 @@ namespace ProjetPendu
                 filepath = fileName;
         }
 
-        public void GetEtatInitial()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetEtatSuivant()
+        public String[] GetEtat(int numero)
         {
             throw new NotImplementedException();
         }

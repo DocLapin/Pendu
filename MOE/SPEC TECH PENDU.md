@@ -145,6 +145,5 @@ Elle est affichée état par état.
 ** Signature des méthodes
 
 public void SetFichier(String fileName)  
-public void GetEtatInitial()  
-public void GetEtatSuivant()  
+public String[] GetEtat(int num)  
 public Boolean IsFinal()  
