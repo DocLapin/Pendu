@@ -53,7 +53,13 @@ namespace Pendu
             return ((wordLength >= minLength) && (wordLength <= maxLength));
         }
 
-
+        /// <summary>
+        /// Get word state which represent the word
+        /// with the found letters.
+        /// * if the letter isn't found 
+        /// [letter] otherwise. 
+        /// </summary>
+        /// <returns>the word state</returns>
         public string GetCurrentState()
         {
             string state = String.Empty;

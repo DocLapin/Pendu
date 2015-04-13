@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProjetPendu
 {
-    class Character : ICharacter
+    public class Character : ICharacter
     {
         private string filepath;
 

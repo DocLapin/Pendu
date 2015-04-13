@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Pendu;
 
 namespace ProjetPendu
 {
@@ -11,7 +12,7 @@ namespace ProjetPendu
         /// Read the next input 
         /// </summary>
         /// <returns> Input pressed by the player</returns>
-        string Input()
+        public String Input()
         {
             return Console.ReadLine();
         }
