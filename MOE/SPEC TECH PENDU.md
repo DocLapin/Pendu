@@ -134,10 +134,10 @@ La classe InputConsole implémentera donc l'interface IInput
 
 ** Signature des méthodes
 
-public String saisieLettre()  
-public String saisieMot()  
-public Boolean isMot()  
-public Boolean isLettre()  
+public String SaisieLettre()  
+public String SaisieMot()  
+public Boolean IsMot()  
+public Boolean IsLettre()  
 
 ** Personnage (Character)
 
@@ -148,7 +148,7 @@ Elle est affichée état par état.
 
 ** Signature des méthodes
 
-public void setFichier(String fileName)  
-public void getEtatInitial()  
-public void getEtatSuivant()  
-public Boolean isFinal()  
+public void SetFichier(String fileName)  
+public void GetEtatInitial()  
+public void GetEtatSuivant()  
+public Boolean IsFinal()  
