@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Pendu;
 
-namespace ProjetPendu
+namespace Pendu
 {
-    interface IOutput
+    public interface IOutput
     {
         /// <summary>
         /// Show the rules of the game

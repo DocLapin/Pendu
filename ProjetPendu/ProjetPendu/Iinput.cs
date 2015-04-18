@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Pendu;
 
-namespace ProjetPendu
+namespace Pendu
 {
-    interface IInput
+    public interface IInput
     {
          String Input();
     }

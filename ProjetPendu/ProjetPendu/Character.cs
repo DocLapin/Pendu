@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace ProjetPendu
+namespace Pendu
 {
     public class Character : ICharacter
     {
-        private static readonly int NUMERO_MAX_STATE = 8;
-        private static readonly int NUMERO_MIN_STATE = 1;
-        private static readonly int NUMERO_NEXT_STATE = 7;
+
+        private static readonly int NUM_MAX_STATE = 8;
+        private static readonly int NUM_MIN_STATE = 1;
+        private static readonly int NUM_NEXT_STATE = 7;
 
         private string filepath;
 
-        public static T[] SubArray<T>(this T[] data, int index, int length)
+        public static T[] SubArray<T>(T[] data, int index, int length)
         {
             T[] result = new T[length];
             Array.Copy(data, index, result, 0, length);
@@ -38,8 +39,8 @@ namespace ProjetPendu
                 String numdep = numero.ToString();
                 numero++;
                 String numfin = numero.ToString();
-                int lignedebut = NUMERO_MIN_STATE;
-                int lignefin = NUMERO_NEXT_STATE;
+                int lignedebut = NUM_MIN_STATE;
+                int lignefin = NUM_NEXT_STATE;
                 String[] lines = File.ReadAllLines(@filepath);
                 String[] Sublines;
                 for (int i = 0; i <= lines.Length; i++)
@@ -64,7 +65,7 @@ namespace ProjetPendu
 
         public bool IsFinal(int numero)
         {
-            return numero == NUMERO_MAX_STATE;
+            return numero == NUM_MAX_STATE;
         }
     }
 }

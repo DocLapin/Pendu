@@ -8,7 +8,7 @@
     <ProjectGuid>{D591D722-A437-4BBB-8782-97E3DC37ADF8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjetPendu</RootNamespace>
+    <RootNamespace>Pendu</RootNamespace>
     <AssemblyName>ProjetPendu</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>

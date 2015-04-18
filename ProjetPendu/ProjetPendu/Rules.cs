@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ProjetPendu
+namespace Pendu
 {
     public class Rules
     {

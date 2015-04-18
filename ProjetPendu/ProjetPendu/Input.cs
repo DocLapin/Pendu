@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Pendu;
 
-namespace ProjetPendu
+namespace Pendu
 {
     public class InputConsole : IInput
     {

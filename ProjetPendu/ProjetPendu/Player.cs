@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ProjetPendu
+namespace Pendu
 {
-    class Player : IPlayer 
+    public class Player : IPlayer 
     {
         public string _idPlayer { get; private set; }
 

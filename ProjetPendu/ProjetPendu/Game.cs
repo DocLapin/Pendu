@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Pendu;
 
-namespace ProjetPendu
+namespace Pendu
 {
     public class Game
     {
@@ -17,8 +17,8 @@ namespace ProjetPendu
         private Rules _rules;
         private ICharacter _character;
 
-        private int _nbTry { get; private set; }
-        private bool _isFinished { get; private set; }
+        private int _nbTry;
+        private bool _isFinished;
 
         /// <summary>
         /// Game constructor with fields
@@ -59,12 +59,18 @@ namespace ProjetPendu
         /// <summary>
         /// Reset a new game
         /// </summary>
-        private void Reset();
+        private void Reset()
+        {
+
+        }
 
         /// <summary>
         /// ends the game
         /// </summary>
-        private void Quit();
+        private void Quit()
+        {
+
+        }
 
         /// <summary>
         /// Is the game finished ?
