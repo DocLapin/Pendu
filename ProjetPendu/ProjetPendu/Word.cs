@@ -63,12 +63,12 @@ namespace Pendu
         public string GetCurrentState()
         {
             string state = String.Empty;
-            int length = WordString.Length;
-            for (int i = 0; i < length; i++)
+            char[] wordChar = WordString.ToCharArray();
+            for (int i = 0; i < wordChar.Length; i++)
             {
                 if (_checkTable[i])
                 {
-                    state = state + WordString.Substring(i, i);
+                    state = state + wordChar[i];
                 }
                 else
                 {
@@ -78,14 +78,14 @@ namespace Pendu
             return state;
         }
 
-        public bool check(string word) 
+        public bool Check(string word) 
         {
-            char[] wordChar = WordString.ToCharArray();
-            char[] messageChar = word.ToCharArray();
+            bool check = false;
+            char[] wordChar = WordString.ToUpper().ToCharArray();
+            char[] playedChar = word.ToUpper().ToCharArray();
             if(word.Length == 1)
             {
-                bool check = false;
-                char letter = messageChar[0];
+                char letter = playedChar[0];
                 for (int i = 0; i < wordChar.Length; i++)
                 {
                     if (wordChar[i] == letter)
@@ -99,8 +99,32 @@ namespace Pendu
             }
             else
             {
-               return wordChar.Equals(messageChar);
+                if (Enumerable.SequenceEqual(wordChar, playedChar)) 
+                {
+                    for (int i = 0; i < wordChar.Length; i++)
+                    {
+                       _checkTable[i] = true;
+                    }
+                    check = true;
+                }
+                else
+                {
+                    check = false;
+                }
             }
+            return check;
+        }
+
+        public bool IsFound()
+        {
+            foreach (bool letterFound in _checkTable)
+            {
+                if (!letterFound)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

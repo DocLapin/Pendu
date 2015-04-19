@@ -20,9 +20,9 @@ namespace ProjetPenduTests
         public void TestSelectAWord1()
         {
             List<Word> words = new List<Word>();
-            words.Add(new Word("Toto"));
+            words.Add(new Word("UnitTest"));
             Dictionary dico = new Dictionary(words);
-            string expected = "Toto";
+            string expected = "UnitTest";
             string actual = dico.SelectAWord().WordString;
             Assert.AreEqual(expected, actual);
  
@@ -32,10 +32,10 @@ namespace ProjetPenduTests
         public void TestSelectAWord2()
         {
             List<Word> words = new List<Word>();
-            words.Add(new Word("Toto"));
+            words.Add(new Word("UnitTest"));
             Dictionary dico = new Dictionary(words);
-            string expected = "Toto";
-            string actual = dico.SelectAWord(1, 5).WordString;
+            string expected = "UnitTest";
+            string actual = dico.SelectAWord(1, 8).WordString;
             Assert.AreEqual(expected, actual);
         }
 
@@ -43,7 +43,7 @@ namespace ProjetPenduTests
         public void TestSelectAWord3()
         {
             List<Word> words = new List<Word>();
-            words.Add(new Word("Toto"));
+            words.Add(new Word("UnitTest"));
             Dictionary dico = new Dictionary(words);
             Word actual = dico.SelectAWord(1, 2);
             Assert.IsNull(actual);
@@ -54,7 +54,7 @@ namespace ProjetPenduTests
         public void TestSelectAWord4()
         {
             List<Word> words = new List<Word>();
-            words.Add(new Word("Toto"));
+            words.Add(new Word("UnitTest"));
             Dictionary dico = new Dictionary(words);
             dico.SelectAWord(-1, 2);
         }
@@ -64,7 +64,7 @@ namespace ProjetPenduTests
         public void TestSelectAWord5()
         {
             List<Word> words = new List<Word>();
-            words.Add(new Word("Toto"));
+            words.Add(new Word("UnitTest"));
             Dictionary dico = new Dictionary(words);
             dico.SelectAWord(1, -2);
         }
@@ -74,7 +74,7 @@ namespace ProjetPenduTests
         public void TestSelectAWord6()
         {
             List<Word> words = new List<Word>();
-            words.Add(new Word("Toto"));
+            words.Add(new Word("UnitTest"));
             Dictionary dico = new Dictionary(words);
             dico.SelectAWord(-1, -2);
         }

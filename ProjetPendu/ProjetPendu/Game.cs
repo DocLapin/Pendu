@@ -8,17 +8,74 @@ namespace Pendu
 {
     public class Game
     {
-        private static readonly int MAX_TRY = 8;
+
+        #region Fields and Properties
 
         private Player _player;
+
+        public Player Player
+        {
+            get { return _player; }
+            private set { _player = value; }
+        }
+
         private Dictionary _dictionary;
+
+        public Dictionary Dictionary
+        {
+            get { return _dictionary; }
+            private set { _dictionary = value; }
+        }
+
         private IInput _input;
+
+        public IInput Input
+        {
+            get { return _input; }
+            private set { _input = value; }
+        }
+
         private IOutput _output;
+
+        public IOutput Output
+        {
+            get { return _output; }
+            private set { _output = value; }
+        }
+
         private Rules _rules;
+
+        public Rules Rules
+        {
+            get { return _rules; }
+            private set { _rules = value; }
+        }
+
         private ICharacter _character;
 
-        private int _nbTry;
-        private bool _isFinished;
+        public ICharacter Character
+        {
+            get { return _character; }
+            private set { _character = value; }
+        }
+
+        private int _nbErrors = 0;
+
+        public int NbErrors
+        {
+            get { return _nbErrors; }
+            private set { _nbErrors = value; }
+        }
+
+        private bool _isWon = false;
+
+        public bool IsWon
+        {
+            get { return _isWon; }
+            private set { _isWon = value; }
+        }
+
+        #endregion
 
         /// <summary>
         /// Game constructor with fields
@@ -44,16 +101,22 @@ namespace Pendu
         /// </summary>
         public void Play()
         {
-            _nbTry = 0;
-            Word word = _dictionary.SelectAWord();
-
-            while (_nbTry < MAX_TRY )
+            Word word = _dictionary.SelectAWord(Rules.MinLengthWord, Rules.MaxLengthWord);
+            while (!IsFinished())
             {
-                ShowCharacter(_nbTry);
-                Ask();
+                string played = Ask();
+                if (!word.Check(played))
+                {
+                    NbErrors++;
+                }
+                else
+                {
+                    IsWon = word.IsFound();
+                }
                 ShowWord(word);
-            }//End while
-            ShowCharacter(_nbTry);
+                ShowCharacter(NbErrors);
+            }
+            ShowCharacter(NbErrors);
         }
 
         /// <summary>
@@ -61,7 +124,7 @@ namespace Pendu
         /// </summary>
         private void Reset()
         {
-
+            
         }
 
         /// <summary>
@@ -78,7 +141,7 @@ namespace Pendu
         /// <returns> True if the game is finished </returns>
         private bool IsFinished()
         {
-            return _isFinished;
+            return ((IsWon == true) || (NbErrors < Rules.MaxNbErrors));
         }
 
         /// <summary>
@@ -86,7 +149,7 @@ namespace Pendu
         /// </summary>
         private void ShowRules()
         {
-            _output.ShowRules(_rules);
+            Output.ShowRules(_rules);
         }
 
         /// <summary>
@@ -94,7 +157,7 @@ namespace Pendu
         /// </summary>
         private void ShowCharacter(int numcharacter)
         {
-            _output.ShowCharacter(_character, numcharacter);
+            Output.ShowCharacter(Character, numcharacter);
         }
 
         /// <summary>
@@ -102,7 +165,7 @@ namespace Pendu
         /// </summary>
         private void ShowWord(Word word)
         {
-            _output.ShowWord(word);
+            Output.ShowWord(word);
         }
         
         /// <summary>
@@ -110,7 +173,7 @@ namespace Pendu
         /// </summary>
 	    private string Ask()
         {
-            return _input.Input();
+            return Input.Input();
         }
     }
 }

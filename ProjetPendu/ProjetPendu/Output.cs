@@ -8,13 +8,9 @@ namespace Pendu
 {
     public class OutputConsole : IOutput
     {
-        /// <summary>
-        /// Display the 
-        /// </summary>
-        /// <returns> Input pressed by the player</returns>
         public void ShowRules(Rules r)
         {
-            Console.Write(r.GetRules());
+            Console.Write(r.RulesDetails);
         }
 
         public void ShowCharacter(ICharacter character, int numcharacter)

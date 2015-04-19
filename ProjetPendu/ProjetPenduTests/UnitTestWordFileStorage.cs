@@ -9,11 +9,11 @@ namespace ProjetPenduTests
     [TestClass]
     public class UnitTestWordFileStorage
     {
-        private readonly string TEST_FILE_PATH = @"C:\temp\TestPenduWords.txt";
+        private readonly string TEST_FILE_PATH = Path.GetTempFileName();
 
         private StreamWriter _file;
 
-        private readonly Word[] TEST_WORDS = { new Word("Test"), new Word("TotoIsHardToFind") };
+        private readonly Word[] TEST_WORDS = { new Word("UnitTest1"), new Word("UnitTest2") };
 
         [TestInitialize]
         public void TestInitialize()
@@ -28,37 +28,25 @@ namespace ProjetPenduTests
             _file.Close();
         }
 
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            File.Delete(TEST_FILE_PATH);
+        }
+
+
         [TestMethod]
-        [ExpectedException(typeof(FileNotFoundException))]
         public void TestLoad1()
         {
-            String filePath = "C:\file.txt";
-            IWordStorage wordStorage = new WordFileStorage(filePath);
-            wordStorage.Load();
+            IWordStorage wordStorage = new WordFileStorage(TEST_FILE_PATH);
+            List<Word> words = wordStorage.Load();
+            int expected = TEST_WORDS.Length;
+            int actual = words.Count;
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestLoad2()
-        {
-            IWordStorage wordStorage = new WordFileStorage(TEST_FILE_PATH);
-            List<Word> words = wordStorage.Load();
-            int expected = TEST_WORDS.Length;
-            int actual = words.Count;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void TestLoad3()
-        {
-            IWordStorage wordStorage = new WordFileStorage(TEST_FILE_PATH);
-            List<Word> words = wordStorage.Load();
-            int expected = TEST_WORDS.Length;
-            int actual = words.Count;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void TestLoad4()
         {
             IWordStorage wordStorage = new WordFileStorage(TEST_FILE_PATH);
             List<Word> words = wordStorage.Load();
