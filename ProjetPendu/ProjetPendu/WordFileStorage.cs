@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Configuration;
 
 namespace Pendu
 {
@@ -16,6 +17,11 @@ namespace Pendu
         {
             get { return _filePath; }
             private set { _filePath = value; }
+        }
+
+        public WordFileStorage()
+        {
+            FilePath = ConfigurationManager.AppSettings["defaultWordsFilePath"];
         }
 
         /// <summary>

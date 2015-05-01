@@ -11,14 +11,6 @@ namespace Pendu
 
         #region Fields and Properties
 
-        private Player _player;
-
-        public Player Player
-        {
-            get { return _player; }
-            private set { _player = value; }
-        }
-
         private Dictionary _dictionary;
 
         public Dictionary Dictionary
@@ -86,9 +78,8 @@ namespace Pendu
         /// <param name="output"></param>
         /// <param name="rules"></param>
         /// <param name="character"></param>
-        public Game(Player player, Dictionary dictionary, IInput input, IOutput output, Rules rules, ICharacter character)
+        public Game(Dictionary dictionary, IInput input, IOutput output, Rules rules, ICharacter character)
         {
-            _player = player;
             _dictionary = dictionary;
             _input = input;
             _output = output;
@@ -141,7 +132,7 @@ namespace Pendu
         /// <returns> True if the game is finished </returns>
         private bool IsFinished()
         {
-            return ((IsWon == true) || (NbErrors < Rules.MaxNbErrors));
+            return ((IsWon == true) || (NbErrors == Rules.MaxNbErrors));
         }
 
         /// <summary>

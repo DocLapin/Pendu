@@ -2,30 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Configuration;
 
 namespace Pendu
 {
     public class Rules
     {
-        /*
-        / Values are only here for remember
-        */
-
-        private readonly int _minLengthWord = 3;
+        private readonly int _minLengthWord;
 
         public int MinLengthWord
         {
             get { return _minLengthWord; }
         } 
 
-        private readonly int _maxLengthWord = 10;
+        private readonly int _maxLengthWord;
 
         public int MaxLengthWord
         {
             get { return _maxLengthWord; }
         } 
 
-        private readonly int _maxNbErrors = 8;
+        private readonly int _maxNbErrors;
 
         public int MaxNbErrors
         {
@@ -42,12 +39,12 @@ namespace Pendu
             get { return _rulesDetails; }
         }
 
-        public Rules(int minLengthWord, int maxLengthWord, int maxNbErrors, string rulesDetails)
+        public Rules()
         {
-            _minLengthWord = minLengthWord;
-            _maxLengthWord = maxLengthWord;
-            _maxNbErrors = maxNbErrors;
-            _rulesDetails = rulesDetails;
+            _minLengthWord = int.Parse(ConfigurationManager.AppSettings["minLengthWord"]);
+            _maxLengthWord = int.Parse(ConfigurationManager.AppSettings["maxLengthWord"]);
+            _maxNbErrors = int.Parse(ConfigurationManager.AppSettings["maxNbErrors"]);
+            _rulesDetails = ConfigurationManager.AppSettings["rulesDetails"];
         }
 
     }
