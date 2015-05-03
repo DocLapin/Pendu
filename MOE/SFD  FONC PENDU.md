@@ -1,10 +1,10 @@
-Spécifications fonctionnelles du Pendu
+﻿Spécifications fonctionnelles du Pendu
 
 # Caractéristiques de la solution
 
-La solution est un programme affiché sous console permettant de jouer a jeu du "pendu". Il s'agit  pour un joueur de retrouver un mot choisi aléatoirement par l’ordinateur dans un dictionnaire défini préalablement. 
+La solution est un programme affiché sous console permettant de jouer à jeu du "pendu". Il s'agit pour un joueur de retrouver un mot choisi aléatoirement par l’ordinateur dans un dictionnaire défini préalablement. 
 
-Le joueur peut faire un nombre fini de propositions. Après 8 propositions erronées, le joueur a perdu la partie.
+Le joueur peut faire un nombre fini de propositions. Après 8 propositions erronées, le joueur à perdu la partie.
 
 # Acteurs du projet
 
@@ -22,14 +22,14 @@ TO DO.md : liste des activités à réaliser.
 
 # Population des utilisateurs visée
 
-Les utilisateurs n’ont pas de qualifications particulières. Les utilisateurs doivent cependant parler français couramment, et savoir utiliser la console, le clavier et la souris.
+Les utilisateurs n’ont pas de qualifications particulières à avoir. Les utilisateurs doivent avoir une bonne connaissance de la langue française, et savoir utiliser la console, le clavier et la souris.
 
 # Fonctions
 
 * Fonction choisir mot :
 
 Choisit un mot au hasard dans le dictionnaire.
-Cette fonction est la première utilisée, elle represente le choix par l'ordinateur d'un mot aléatoire.
+Cette fonction est la première utilisée, elle représente le choix aléatoire d'un mot par l'ordinateur.
 Vient ensuite le premier tour du joueur qui doit proposer une lettre.
 
 * Fonction proposer lettre :
@@ -38,7 +38,7 @@ Le joueur propose une lettre.
 Si la lettre proposée est dans le mot, elle s'affiche à sa bonne position.
 Si elle n'est pas dans le mot, le pendu passe à son état suivant.
 
-Erreurs : chiffre ou caractère spécial proposé 
+Erreur : chiffre ou caractère spécial non autorisé proposé 
 
 * Fonction proposer mot :
 
@@ -49,7 +49,7 @@ Sinon le pendu passe à son état suivant.
 
 * Fonction abandonner :
 
-Le joueur peut abandonner, la partie doit être relancée depuis le choix du mot.
+Le joueur peut abandonner, la partie doit ensuite être relancée depuis l'écran "choix du mot".
 
 * Fonction afficher les règles :
 
@@ -66,9 +66,8 @@ Affiche la potence en fonction du score du joueur.
 Cette fonction permet d'évaluer la lettre proposée par le joueur.
 Vérifier la lettre et fait appel à l’affichage de la potence dans le cas où la lettre est fausse.
 
-* Fonction afficher lettre à trouver :
+* Fonction afficher lettres trouvées :
 
-Cette fonction 
-Affiche les lettre déjà trouvées par le joueur.
+Cette fonction affiche les lettres déjà trouvées par le joueur.
 
 

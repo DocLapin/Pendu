@@ -9,6 +9,11 @@ namespace Pendu
     public interface IOutput
     {
         /// <summary>
+        /// Show the main menu of the game
+        /// </summary>
+        void ShowMenu();
+
+        /// <summary>
         /// Show the rules of the game
         /// </summary>
         /// <param name="r"></param>

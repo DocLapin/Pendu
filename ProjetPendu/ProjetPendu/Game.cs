@@ -123,7 +123,7 @@ namespace Pendu
         /// </summary>
         private void Quit()
         {
-
+            System.Environment.Exit(1);
         }
 
         /// <summary>
