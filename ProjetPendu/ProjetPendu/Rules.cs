@@ -27,12 +27,20 @@ namespace Pendu
         public int MaxNbErrors
         {
             get { return _maxNbErrors; }
-        } 
+        }
+
+        private readonly string _mainRules;
+
+        public string MainRules
+        {
+            get { return _mainRules; }
+        }
 
         private readonly string _rulesDetails = 
             "Le joueur peut proposer soit une lettre, soit un mot complet."
             + Environment.NewLine +
             "Le joueur ne peut proposer qu'une seule lettre par tour.";
+
 
         public string RulesDetails
         {
@@ -45,6 +53,7 @@ namespace Pendu
             _maxLengthWord = int.Parse(ConfigurationManager.AppSettings["maxLengthWord"]);
             _maxNbErrors = int.Parse(ConfigurationManager.AppSettings["maxNbErrors"]);
             _rulesDetails = ConfigurationManager.AppSettings["rulesDetails"];
+            _mainRules = ConfigurationManager.AppSettings["mainRules"];
         }
 
     }
