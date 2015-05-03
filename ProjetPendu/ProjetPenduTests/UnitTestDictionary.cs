@@ -23,7 +23,7 @@ namespace ProjetPenduTests
             words.Add(new Word("UnitTest"));
             Dictionary dico = new Dictionary(words);
             string expected = "UnitTest";
-            string actual = dico.SelectAWord().WordString;
+            string actual = dico.SelectAWord().WordToFindString;
             Assert.AreEqual(expected, actual);
  
         }
@@ -35,7 +35,7 @@ namespace ProjetPenduTests
             words.Add(new Word("UnitTest"));
             Dictionary dico = new Dictionary(words);
             string expected = "UnitTest";
-            string actual = dico.SelectAWord(1, 8).WordString;
+            string actual = dico.SelectAWord(1, 8).WordToFindString;
             Assert.AreEqual(expected, actual);
         }
 

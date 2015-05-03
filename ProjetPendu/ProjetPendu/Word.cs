@@ -8,12 +8,16 @@ namespace Pendu
 {
     public class Word
     {
-        private string _wordString;
+        private char[] _wordToFind;
+        private char[] _wordToFindUpper;
         private bool[] _checkTable;
-        public string WordString
+
+        public string WordToFindString
         {
-            get { return _wordString; }
-            private set { _wordString = value; }
+            get
+            {
+                return (new string(_wordToFind));
+            }
         }
 
         /// <summary>
@@ -28,7 +32,8 @@ namespace Pendu
             }
             else
             {
-                WordString = word;
+                _wordToFind = word.ToCharArray();
+                _wordToFindUpper = word.ToUpper().ToCharArray();
                 _checkTable = new bool[word.Length];
             }
         }
@@ -49,7 +54,7 @@ namespace Pendu
             {
                 throw new ArgumentOutOfRangeException("maxLength must be >= minLength");
             }
-            int wordLength = WordString.Length;
+            int wordLength = _wordToFind.Length;
             return ((wordLength >= minLength) && (wordLength <= maxLength));
         }
 
@@ -63,12 +68,11 @@ namespace Pendu
         public string GetCurrentState()
         {
             string state = String.Empty;
-            char[] wordChar = WordString.ToCharArray();
-            for (int i = 0; i < wordChar.Length; i++)
+            for (int i = 0; i < _wordToFind.Length; i++)
             {
                 if (_checkTable[i])
                 {
-                    state = state + wordChar[i];
+                    state = state + _wordToFind[i];
                 }
                 else
                 {
@@ -78,41 +82,46 @@ namespace Pendu
             return state;
         }
 
-        public bool Check(string word) 
+        public bool Check(string wordPlayed) 
         {
-            bool check = false;
-            char[] wordChar = WordString.ToUpper().ToCharArray();
-            char[] playedChar = word.ToUpper().ToCharArray();
-            if(word.Length == 1)
+            char[] wordPlayedChar = wordPlayed.ToUpper().ToCharArray();
+            if (wordPlayedChar.Length == 1)
             {
-                char letter = playedChar[0];
-                for (int i = 0; i < wordChar.Length; i++)
-                {
-                    if (wordChar[i] == letter)
-                    {
-                        _checkTable[i] = true;
-                        check = true;
-                    }
-                    // no else
-                }
-                return check;
+                return CheckLetter(wordPlayedChar[0]);
             }
             else
             {
-                if (Enumerable.SequenceEqual(wordChar, playedChar)) 
+                return CheckWord(wordPlayedChar);
+            }
+        }
+
+        private bool CheckLetter(char letter)
+        {
+            bool check = false;
+            for (int i = 0; i < _wordToFindUpper.Length; i++)
+            {
+                if (_wordToFindUpper[i] == letter)
                 {
-                    for (int i = 0; i < wordChar.Length; i++)
-                    {
-                       _checkTable[i] = true;
-                    }
+                    _checkTable[i] = true;
                     check = true;
                 }
-                else
-                {
-                    check = false;
-                }
+                // no else
             }
             return check;
+        }
+
+        private bool CheckWord(char[] wordPlayedChar)
+        {
+            if (_wordToFindUpper.SequenceEqual(wordPlayedChar))
+            {
+                for (int i = 0; i < _wordToFindUpper.Length; i++)
+                {
+                    _checkTable[i] = true;
+                }
+                return true;
+            }
+            // no else
+            return false;
         }
 
         public bool IsFound()

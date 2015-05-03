@@ -22,7 +22,7 @@ namespace ProjetPenduTests
             {
                 foreach (Word word in TEST_WORDS)
                 {
-                    _file.WriteLine(word.WordString);
+                    _file.WriteLine(word.WordToFindString);
                 }
             }
             _file.Close();
@@ -52,8 +52,8 @@ namespace ProjetPenduTests
             List<Word> words = wordStorage.Load();
             Word expectedWord = TEST_WORDS[0];
             Word actualWord = words[0];
-            string expected = expectedWord.WordString;
-            string actual = actualWord.WordString;
+            string expected = expectedWord.WordToFindString;
+            string actual = actualWord.WordToFindString;
             Assert.AreEqual(expected, actual);
         }
     }

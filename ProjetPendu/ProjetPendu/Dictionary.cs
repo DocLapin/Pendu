@@ -77,7 +77,7 @@ namespace Pendu
         /// Select a word randomly wich correspond to the specified minimal length and maximal length
         /// </summary>
         /// <returns>A randomly selected word wich correspond to the specified minimal length and maximal length. 
-        /// Null if no words wich correspond to the specified minimal length and maximal length. 
+        /// Null if no words correspond to the specified minimal length and maximal length. 
         /// </returns>
         private Word GetWord(int minLength, int maxLength)
         {

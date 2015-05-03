@@ -36,11 +36,7 @@ namespace Pendu
             get { return _mainRules; }
         }
 
-        private readonly string _rulesDetails = 
-            "Le joueur peut proposer soit une lettre, soit un mot complet."
-            + Environment.NewLine +
-            "Le joueur ne peut proposer qu'une seule lettre par tour.";
-
+        private readonly string _rulesDetails;
 
         public string RulesDetails
         {
