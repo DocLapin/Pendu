@@ -12,7 +12,8 @@ En cas d’égalité au bout des 5 manches, des manches sont ajoutées en « mo
 Le score de la partie doit être indiqué (nombre de manches gagnés par joueurs).
 
 À la fin de la partie, on peut recommencer une partie.
-L’état de la partie doit être sauvegardé au fur et à mesure. Le format du fichier devra être au format JYSON
+L’état de la partie doit être sauvegardé au fur et à mesure dans un fichier. 
+Le format du fichier devra être le format JYSON.
 Cette sauvegarde comprend : 
     Le nom des joueurs
     Le score de chacun des joueurs
