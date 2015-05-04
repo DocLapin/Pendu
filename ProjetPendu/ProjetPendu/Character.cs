@@ -57,7 +57,7 @@ namespace Pendu
 
                 }
 
-                Sublines = SubArray<String>(lines, lignedebut, lignefin);
+                Sublines = SubArray<String>(lines, lignedebut, lignefin-lignedebut+1);
 
                 return Sublines;
             }

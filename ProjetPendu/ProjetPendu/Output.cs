@@ -12,15 +12,22 @@ namespace Pendu
         public void ShowMenu()
         {
             Console.Write(ConfigurationManager.AppSettings["mainMenu"]);
-
         }
         public void ShowRules(Rules r)
         {
             Console.Write(r.RulesDetails);
         }
 
+        /*
+         * Displaying the actual character (pendu)
+        */
         public void ShowCharacter(ICharacter character, int numcharacter)
         {
+            character.SetFichier(ConfigurationManager.AppSettings["defaultCharacterPath"]);
+            String[] bonhomme = character.GetEtat(numcharacter); 
+            foreach (String s in bonhomme) {
+                Console.Write(s);
+            }
         }
 
         public void ShowWord(Word w)

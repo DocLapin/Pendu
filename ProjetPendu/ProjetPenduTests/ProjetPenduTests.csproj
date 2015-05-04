@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="OutputUnitTest.cs" />
     <Compile Include="UnitTestDictionary.cs" />
     <Compile Include="UnitTestWordFileStorage.cs" />
     <Compile Include="UnitTestWord.cs" />
