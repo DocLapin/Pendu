@@ -23,43 +23,43 @@
 
 ###Scénario n°4
 
-**But du scénario** : Tester le positionnement d'un symbole dans une case 
-**Déroulement** : Le joueur choisit la case où il veut mettre son symbole
-**Résultat attendu** : Le symbole du joueur est bien dans la case
+**But du scénario** : Tester le positionnement d'un symbole dans une case  
+**Déroulement** : Le joueur choisit la case où il veut mettre son symbole  
+**Résultat attendu** : Le symbole du joueur est bien dans la case  
 
 ###Scénario n°5
 
-**But du scénario** : Tester le passage de tour au joueur suivant 
-**Déroulement** : Le joueur 1 ou 2 joue une fois
-**Résultat attendu** : Le tour passe à l'autre joueur
+**But du scénario** : Tester le passage de tour au joueur suivant  
+**Déroulement** : Le joueur 1 ou 2 joue une fois  
+**Résultat attendu** : Le tour passe à l'autre joueur  
 
 ###Scénario n°6
 
-**But du scénario** : Tester la victoire d'un joueur
-**Déroulement** : Le joueur 1 ou 2 aligne 3 de ses symboles
-**Résultat attendu** : Le joueur 1 ou 2 doit gagner la manche avec ajout au score
+**But du scénario** : Tester la victoire d'un joueur  
+**Déroulement** : Le joueur 1 ou 2 aligne 3 de ses symboles  
+**Résultat attendu** : Le joueur 1 ou 2 doit gagner la manche avec ajout au score  
 
 ###Scénario n°7
 
-**But du scénario** : Tester l'égalité d'une manche
-**Déroulement** : La grille est rempli sans qu'aucun des 2 joueurs n'aient pu aligner 3 de ses symboles
-**Résultat attendu** : La manche doit se terminer par une égalité
+**But du scénario** : Tester l'égalité d'une manche  
+**Déroulement** : La grille est rempli sans qu'aucun des 2 joueurs n'aient pu aligner 3 de ses symboles  
+**Résultat attendu** : La manche doit se terminer par une égalité  
 
 ###Scénario n°8
 
-**But du scénario** : Tester le passage à la manche suivante sans fin de partie
-**Déroulement** : Terminer une manche sauf la dernière
-**Résultat attendu** : La partie doit continuer par une nouvelle manche
+**But du scénario** : Tester le passage à la manche suivante sans fin de partie  
+**Déroulement** : Terminer une manche sauf la dernière  
+**Résultat attendu** : La partie doit continuer par une nouvelle manche  
 
 
 ###Scénario n°9
 
-**But du scénario** : Tester la fin d'une partie
-**Déroulement** : Les joueurs jouent les 5 manches sans égalité
-**Résultat attendu** : La partie doit se terminer avec l'affichage du score et du gagnant
+**But du scénario** : Tester la fin d'une partie  
+**Déroulement** : Les joueurs jouent les 5 manches sans égalité  
+**Résultat attendu** : La partie doit se terminer avec l'affichage du score et du gagnant  
 
 ###Scénario n°10
 
-**But du scénario** : Tester la non fin d'une partie après au moins une égalité
-**Déroulement** : Les joueurs jouent 5 manches avec au moins une manche d'égalité
-**Résultat attendu** : La partie ne doit pas se terminer et continuer avec une nouvelle manche
+**But du scénario** : Tester la non fin d'une partie après au moins une égalité  
+**Déroulement** : Les joueurs jouent 5 manches avec au moins une manche d'égalité  
+**Résultat attendu** : La partie ne doit pas se terminer et continuer avec une nouvelle manche  

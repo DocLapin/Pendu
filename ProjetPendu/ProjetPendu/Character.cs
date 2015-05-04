@@ -43,7 +43,7 @@ namespace Pendu
                 int lignefin = NUM_NEXT_STATE;
                 String[] lines = File.ReadAllLines(@filepath);
                 String[] Sublines;
-                for (int i = 0; i <= lines.Length; i++)
+                for (int i = 0; i <= lines.Length-1; i++)
                 {
                     if (lines[i].Contains(numdep))
                     {
@@ -57,7 +57,7 @@ namespace Pendu
 
                 }
 
-                Sublines = SubArray<String>(lines, lignedebut, lignefin);
+                Sublines = SubArray<String>(lines, lignedebut, lignefin-lignedebut+1);
 
                 return Sublines;
             }

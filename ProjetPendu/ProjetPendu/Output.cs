@@ -22,6 +22,12 @@ namespace Pendu
 
         public void ShowCharacter(ICharacter character, int numcharacter)
         {
+            character.SetFichier(ConfigurationManager.AppSettings["defaultCharacterPath"]);
+            String[] bonhomme = character.GetEtat(numcharacter);
+            foreach (String s in bonhomme)
+            {
+                Console.Write(s);
+            }
         }
 
         public void ShowWord(Word w)
