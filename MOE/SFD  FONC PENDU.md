@@ -1,4 +1,4 @@
-﻿Spécifications fonctionnelles du Pendu
+﻿# Spécifications fonctionnelles du Pendu
 
 # Caractéristiques de la solution
 

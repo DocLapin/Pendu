@@ -47,53 +47,53 @@ Chaque développeur doit exécuter tous les tests existants avant de faire un pu
 
 ## Composants
 
-** Dictionnaire (Dictionnary)
+* Dictionnaire (Dictionnary)
 
 Le dictionnaire contient tous les mots du jeu. Un mot est choisit aléatoirement au début de la partie par le programme.
 Le dictionnaire est stocké sous forme de fichier délimité, ce fichier est chargé au début du jeu.
 
-** Signature des méthodes
+* Signature des méthodes
 
 public Dictionnary(List<Word> ...)
 public void Load()  
 public Word SelectAWord()  
 public Word SelectAWord(int minimalSize, int maximalSize)  
 
-** Stockage des mots (IWordStorage)
+* Stockage des mots (IWordStorage)
 
 Les mots seront stockées dans un fichier avec un mot par ligne terminée par un ';'
 La classe représentant ce fichier sera nommée WordFile.
 Néanmoins nous prévoyons le changement de type de stockage donc nous utiliserons une interface (IWordStorage) qui sera implémentée par WordFile.
 
-** Signature des méthodes
+* Signature des méthodes
 
 public void Load()
 
-** Exclusif à la classe WordFile :
+* Exclusif à la classe WordFile :
 
 public WordFile(String filePath)
 
-** Joueur (IPlayer)
+* Joueur (IPlayer)
 
 Représente un joueur (Player).
 Nous prévoyons l'utilisation d'un joueur non-humain donc nous utiliserons une interface (IPlayer) qui sera implémentée par Player.
 
-** Mot (Word)
+* Mot (Word)
 
 Représente les mots d'une longueur comprise entre 3 et 10 lettres.
 
-** Signature des méthodes
+* Signature des méthodes
 
 public Word(String)  
 public int GetSize()  
 public int GetNbLetterFound()  
 public boolean IsLetterCorrect(Letter ...)  
 
-** Jeu (Game)
+* Jeu (Game)
 
 Représente le jeu.
 
-** Signature des méthodes
+* Signature des méthodes
 
 public Game(Joueur ..., Dictionnary ..., IInput ..., IOutput ..., Rules ..., ICharacter ...)  
 public void Play()  
@@ -105,43 +105,43 @@ public void ShowCharacter()
 public void ShowWord()  
 public string Ask()  
 
-** Règles (Rules)
+* Règles (Rules)
 
 Représente toutes les données concernant les règles du jeu (longueur minimale et maximales des mots ...)
 
-** Signature des méthodes
+* Signature des méthodes
  
 public void ShowRules(Rules ...)  
 + attributs ou méthodes statiques pour représenter les règles (longueur minimale des mots ...)
 
-** Sortie (IOutput)
+* Sortie (IOutput)
 
 L'affichage pourra se faire dans la console mais nous prévoyons la nécessité d'avoir une autre sortie.
 La classe OutputConsole implémentera donc l'interface IOutput
 
-** Signature des méthodes
+* Signature des méthodes
 
 public void ShowRules(Rules ...)  
 public void ShowCharacter(Character ...)  
 public void ShowWord(Word ...)  
 
-** Entrée (IInput)
+* Entrée (IInput)
 
 Les saisies pourront se faire dans la console mais nous prévoyons la nécessité d'avoir une autre entrée.
 La classe InputConsole implémentera donc l'interface IInput
 
-** Signature des méthodes
+* Signature des méthodes
 
 public String Saisie()
 
-** Personnage (Character)
+* Personnage (Character)
 
 Image générée par un fichier plat comprenant tous les états de l'image. Il y a 8 états.
 Elle est affichée état par état.
 
 (il faudra une interface pour ne pas être lié à un fichier plat)
 
-** Signature des méthodes
+* Signature des méthodes
 
 public void SetFichier(String fileName)  
 public String[] GetEtat(int num)  
