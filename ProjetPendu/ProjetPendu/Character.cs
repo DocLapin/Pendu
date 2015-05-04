@@ -17,7 +17,7 @@ namespace Pendu
 
         public static T[] SubArray<T>(T[] data, int index, int length)
         {
-            T[] result = new T[length];
+            T[] result = new T[length+1];
             Array.Copy(data, index, result, 0, length);
             return result;
         }
