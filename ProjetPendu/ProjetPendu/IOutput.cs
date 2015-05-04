@@ -25,6 +25,12 @@ namespace Pendu
         void ShowWord(Word w);
 
         /// <summary>
+        /// Show string
+        /// </summary>
+        /// <param name="s"></param>
+        void ShowString(String s);
+
+        /// <summary>
         /// Show the character
         /// </summary>
         /// <param name="c"></param>

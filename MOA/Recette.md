@@ -68,10 +68,10 @@
 
 **But du scénario** : Tester la sauvegarde d'une partie   
 **Déroulement** : L'un des joueurs sauvegarde la partie    
-**Résultat attendu** : La partie est sauvegardée au format JISON  
+**Résultat attendu** : La partie est sauvegardée au format JSON  
 
 ###Scénario n°12
 
 **But du scénario** : Restaurer la sauvegarde d'une partie   
 **Déroulement** : L'un des joueurs restaure la sauvegarde de la partie     
-**Résultat attendu** : La partie est restaurée du format JISON  
+**Résultat attendu** : La partie est restaurée du format JSON  

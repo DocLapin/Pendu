@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Configuration;
+using Pendu.Properties;
 using Pendu;
 
 namespace Pendu
@@ -22,17 +23,23 @@ namespace Pendu
 
         public void ShowCharacter(ICharacter character, int numcharacter)
         {
-            character.SetFichier(ConfigurationManager.AppSettings["defaultCharacterPath"]);
+           
+            character.SetFichier(@ConfigurationManager.AppSettings["defaultCharacterPath"]);
             String[] bonhomme = character.GetEtat(numcharacter);
             foreach (String s in bonhomme)
             {
-                Console.Write(s);
+                Console.WriteLine(s);
             }
         }
 
         public void ShowWord(Word w)
         {
             Console.WriteLine(w.GetCurrentState());
+        }
+
+        public void ShowString(String s)
+        {
+            Console.WriteLine("Le mot était : " + s);
         }
 
         public void ShowLost()

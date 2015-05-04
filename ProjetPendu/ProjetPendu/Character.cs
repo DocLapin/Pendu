@@ -22,12 +22,22 @@ namespace Pendu
             return result;
         }
 
+
+        /// <summary>
+        /// Set the file to use as the character
+        /// </summary>
+        /// <param name="fileName">the file path of the file</param>
         public void SetFichier(string fileName)
         {
             if (fileName.Length > 0)
                 filepath = fileName;
         }
 
+        /// <summary>
+        /// Get the initial state of the pendu (generaly the ground)
+        /// </summary>
+        /// <param name="num">The number of the state to get</param>
+        /// <returns>String arrray of the state</returns>
         public String[] GetEtat(int numero)
         {
             if (!File.Exists(filepath))
@@ -63,6 +73,11 @@ namespace Pendu
             }
         }
 
+        /// <summary>
+        /// Tell if the previous state showed is the final state
+        /// </summary>
+        /// <param name="num">the number of the state you want to test</param>
+        /// <returns>True or False</returns>
         public bool IsFinal(int numero)
         {
             return numero == NUM_MAX_STATE;
