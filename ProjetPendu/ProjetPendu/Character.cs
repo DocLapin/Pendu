@@ -17,7 +17,7 @@ namespace Pendu
 
         public static T[] SubArray<T>(T[] data, int index, int length)
         {
-            T[] result = new T[length+1];
+            T[] result = new T[length];
             Array.Copy(data, index, result, 0, length);
             return result;
         }
@@ -43,7 +43,7 @@ namespace Pendu
                 int lignefin = NUM_NEXT_STATE;
                 String[] lines = File.ReadAllLines(@filepath);
                 String[] Sublines;
-                for (int i = 0; i <= lines.Length; i++)
+                for (int i = 0; i <= lines.Length-1; i++)
                 {
                     if (lines[i].Contains(numdep))
                     {
