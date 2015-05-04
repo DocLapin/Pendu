@@ -26,7 +26,7 @@ namespace Pendu
             var container = builder.Build();
 
             Game game = container.Resolve<Game>();
-            game.Play();
+            game.Start();
         }
     }
 }
