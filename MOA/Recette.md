@@ -23,9 +23,9 @@
 
 ###Scénario n°4
 
-**But du scénario** : Tester le positionnement d'un symbole dans une case 
-**Déroulement** : Le joueur choisit la case où il veut mettre son symbole
-**Résultat attendu** : Le symbole du joueur est bien dans la case
+**But du scénario** : Tester le positionnement d'un symbole dans une case  
+**Déroulement** : Le joueur choisit la case où il veut mettre son symbole  
+**Résultat attendu** : Le symbole du joueur est bien dans la case  
 
 ###Scénario n°5
 

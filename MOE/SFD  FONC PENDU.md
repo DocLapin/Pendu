@@ -1,4 +1,4 @@
-﻿# Spécifications fonctionnelles du Pendu
+﻿## Spécifications fonctionnelles du Pendu ##
 
 # Caractéristiques de la solution
 
@@ -26,13 +26,13 @@ Les utilisateurs n’ont pas de qualifications particulières à avoir. Les util
 
 # Fonctions
 
-* Fonction choisir mot :
+* **Choisir mot :**
 
 Choisit un mot au hasard dans le dictionnaire.
 Cette fonction est la première utilisée, elle représente le choix aléatoire d'un mot par l'ordinateur.
 Vient ensuite le premier tour du joueur qui doit proposer une lettre.
 
-* Fonction proposer lettre :
+* **Proposer lettre :**
 
 Le joueur propose une lettre.
 Si la lettre proposée est dans le mot, elle s'affiche à sa bonne position.
@@ -40,33 +40,33 @@ Si elle n'est pas dans le mot, le pendu passe à son état suivant.
 
 Erreur : chiffre ou caractère spécial non autorisé proposé 
 
-* Fonction proposer mot :
+* **Proposer mot :**
 
 En plus de pouvoir proposer une lettre.
 Le joueur peut proposer un mot à la place. 
 Si c'est le bon mot, le joueur gagne la partie.
 Sinon le pendu passe à son état suivant.
 
-* Fonction abandonner :
+* **Abandonner :**
 
 Le joueur peut abandonner, la partie doit ensuite être relancée depuis l'écran "choix du mot".
 
-* Fonction afficher les règles :
+* **Afficher les règles :**
 
 À tout moment, le joueur peut afficher les règles du jeu.
 Les règles sont affichées, le joueur doit pouvoir quitter cet affichage.
 
-* Fonction afficher potence :
+* **Afficher potence :**
 
 Cette fonction permet de passer le pendu à l'état suivant et donc de l'afficher.
 Affiche la potence en fonction du score du joueur.
 
-* Fonction vérifier lettre proposée :
+* **Vérifier lettre proposée :**
 
 Cette fonction permet d'évaluer la lettre proposée par le joueur.
 Vérifier la lettre et fait appel à l’affichage de la potence dans le cas où la lettre est fausse.
 
-* Fonction afficher lettres trouvées :
+* **Afficher lettres trouvées :**
 
 Cette fonction affiche les lettres déjà trouvées par le joueur.
 
