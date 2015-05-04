@@ -146,3 +146,9 @@ Elle est affichée état par état.
 public void SetFichier(String fileName)  
 public String[] GetEtat(int num)  
 public Boolean IsFinal()  
+
+## Fichiers spécifiques
+
+** Fichier de dessin
+
+Pour l'affichage du pendu, l'application utilise un fichier spécifique.
