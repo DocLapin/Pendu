@@ -98,9 +98,12 @@ namespace Pendu
             {
                 continuePlay = false;
                 Word word = _dictionary.SelectAWord(Rules.MinLengthWord, Rules.MaxLengthWord);
+                
                 while (!IsFinished())
                 {
                     ShowMenu();
+                    ShowWord(word);
+                    ShowCharacter(NbErrors);
                     string played = Ask();
 
                     //test du retour clavier
@@ -122,17 +125,19 @@ namespace Pendu
                         {
                             IsWon = word.IsFound();
                         }
-                        ShowWord(word);
-                        ShowCharacter(NbErrors);
+
+                        
                     }
                 }
 
                 if (IsWon)
                 {
+                    Output.ShowString(word.WordToFindString);
                     Output.ShowWin();
                 }
                 else
                 {
+                    Output.ShowString(word.WordToFindString);
                     Output.ShowLost();
                 }
                 //demander si le joueur veut faire un reset
