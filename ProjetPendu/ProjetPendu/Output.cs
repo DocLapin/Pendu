@@ -11,12 +11,13 @@ namespace Pendu
     {
         public void ShowMenu()
         {
-            Console.Write(ConfigurationManager.AppSettings["mainMenu"]);
+            Console.WriteLine(ConfigurationManager.AppSettings["mainMenu"]);
+
 
         }
         public void ShowRules(Rules r)
         {
-            Console.Write(r.RulesDetails);
+            Console.WriteLine(r.RulesDetails);
         }
 
         public void ShowCharacter(ICharacter character, int numcharacter)
@@ -26,6 +27,21 @@ namespace Pendu
         public void ShowWord(Word w)
         {
             Console.WriteLine(w.GetCurrentState());
+        }
+
+        public void ShowLost()
+        {
+            Console.WriteLine(ConfigurationManager.AppSettings["lostPrompt"]);
+        }
+
+        public void ShowWin()
+        {
+            Console.WriteLine(ConfigurationManager.AppSettings["winPrompt"]);
+        }
+
+        public void ShowReset()
+        {
+            Console.WriteLine(ConfigurationManager.AppSettings["resetPrompt"]);
         }
     }
 }

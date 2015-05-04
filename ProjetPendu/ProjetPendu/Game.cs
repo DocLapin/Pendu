@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Configuration;
 using Pendu;
 
 namespace Pendu
@@ -92,30 +93,60 @@ namespace Pendu
         /// </summary>
         public void Play()
         {
-            Word word = _dictionary.SelectAWord(Rules.MinLengthWord, Rules.MaxLengthWord);
-            while (!IsFinished())
+            bool continuePlay = true;
+            while (continuePlay)
             {
-                string played = Ask();
-                if (!word.Check(played))
+                continuePlay = false;
+                Word word = _dictionary.SelectAWord(Rules.MinLengthWord, Rules.MaxLengthWord);
+                while (!IsFinished())
                 {
-                    NbErrors++;
+                    ShowMenu();
+                    string played = Ask();
+
+                    //test du retour clavier
+                    if (played.Equals(Rules._symbolRules))
+                    {
+                        ShowRules();
+                    }
+                    else if (played.Equals(Rules._symbolQuit))
+                    {
+                        Quit();
+                    }
+                    else
+                    {
+                        if (!word.Check(played))
+                        {
+                            NbErrors++;
+                        }
+                        else
+                        {
+                            IsWon = word.IsFound();
+                        }
+                        ShowWord(word);
+                        ShowCharacter(NbErrors);
+                    }
+                }
+
+                if (IsWon)
+                {
+                    Output.ShowWin();
                 }
                 else
                 {
-                    IsWon = word.IsFound();
+                    Output.ShowLost();
                 }
-                ShowWord(word);
-                ShowCharacter(NbErrors);
+                //demander si le joueur veut faire un reset
+                Output.ShowReset();
+                string response = Ask();
+                if (response.Equals(ConfigurationManager.AppSettings["symbolReset"]))
+                {
+                    continuePlay = true;
+                    IsWon = false;
+                    NbErrors = 0;
+                    word.Reset();
+                }
+                // no else
             }
-            ShowCharacter(NbErrors);
-        }
-
-        /// <summary>
-        /// Reset a new game
-        /// </summary>
-        private void Reset()
-        {
-            
         }
 
         /// <summary>
@@ -164,7 +195,12 @@ namespace Pendu
         /// </summary>
 	    private string Ask()
         {
-            return Input.Input();
+             return Input.Input();
+        }
+
+        private void ShowMenu()
+        {
+            Output.ShowMenu();
         }
     }
 }

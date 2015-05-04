@@ -29,5 +29,20 @@ namespace Pendu
         /// </summary>
         /// <param name="c"></param>
         void ShowCharacter(ICharacter character, int numcharacter);
+
+        /// <summary>
+        /// Tells the player that he lost
+        /// </summary>
+        void ShowLost();
+
+        /// <summary>
+        /// Tells the player that he has won
+        /// </summary>
+        void ShowWin();
+
+        /// <summary>
+        /// Asks if the player wants to reset the game
+        /// </summary>
+        void ShowReset();
     }
 }

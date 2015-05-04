@@ -135,5 +135,13 @@ namespace Pendu
             }
             return true;
         }
+
+        public void Reset()
+        {
+            for (int i = 0; i < _checkTable.Length; ++i)
+            {
+                _checkTable[i] = false;
+            }
+        }
     }
 }
