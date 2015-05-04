@@ -63,3 +63,15 @@
 **But du scénario** : Tester la non fin d'une partie après au moins une égalité  
 **Déroulement** : Les joueurs jouent 5 manches avec au moins une manche d'égalité  
 **Résultat attendu** : La partie ne doit pas se terminer et continuer avec une nouvelle manche  
+
+###Scénario n°11
+
+**But du scénario** : Tester la sauvegarde d'une partie   
+**Déroulement** : L'un des joueurs sauvegarde la partie    
+**Résultat attendu** : La partie est sauvegardée au format JISON  
+
+###Scénario n°12
+
+**But du scénario** : Restaurer la sauvegarde d'une partie   
+**Déroulement** : L'un des joueurs restaure la sauvegarde de la partie     
+**Résultat attendu** : La partie est restaurée du format JISON  
