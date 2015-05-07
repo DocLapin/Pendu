@@ -68,6 +68,14 @@ namespace Pendu
             private set { _isWon = value; }
         }
 
+        private bool _continuePlay = true;
+
+        public bool ContinuePlay
+        {
+            get { return _continuePlay; }
+            private set { _continuePlay = value; }
+        }
+
         #endregion
 
         /// <summary>
@@ -93,10 +101,9 @@ namespace Pendu
         /// </summary>
         public void Start()
         {
-            bool continuePlay = true;
-            while (continuePlay)
+            while (ContinuePlay)
             {
-                continuePlay = false;
+                ContinuePlay = false;
                 Word word = _dictionary.SelectAWord(Rules.MinLengthWord, Rules.MaxLengthWord);
                 while (!IsFinished())
                 {
@@ -114,7 +121,7 @@ namespace Pendu
             string response = Ask();
             if (response.Equals(ConfigurationManager.AppSettings["symbolReset"]))
             {
-                continuePlay = true;
+                ContinuePlay = true;
                 IsWon = false;
                 NbErrors = 0;
                 word.Reset();
