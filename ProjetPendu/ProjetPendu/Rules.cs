@@ -31,11 +31,6 @@ namespace Pendu
 
         private readonly string _mainRules;
 
-        public string MainRules
-        {
-            get { return _mainRules; }
-        }
-
         private readonly string _rulesDetails;
         public string _symbolRules { get; private set; }
         public string _symbolQuit { get; private set; }
@@ -51,7 +46,6 @@ namespace Pendu
             _maxLengthWord = int.Parse(ConfigurationManager.AppSettings["maxLengthWord"]);
             _maxNbErrors = int.Parse(ConfigurationManager.AppSettings["maxNbErrors"]);
             _rulesDetails = ConfigurationManager.AppSettings["rulesDetails"];
-            _mainRules = ConfigurationManager.AppSettings["mainRules"];
             _symbolRules = ConfigurationManager.AppSettings["symbolRules"];
             _symbolQuit = ConfigurationManager.AppSettings["symbolQuit"];
         }

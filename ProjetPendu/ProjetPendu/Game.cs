@@ -75,6 +75,14 @@ namespace Pendu
             private set { _isWon = value; }
         }
 
+        private bool _continuePlay = true;
+
+        public bool ContinuePlay
+        {
+            get { return _continuePlay; }
+            private set { _continuePlay = value; }
+        }
+
         #endregion
 
         /// <summary>
@@ -100,71 +108,93 @@ namespace Pendu
         /// <summary>
         /// start the game 
         /// </summary>
-        public void Play()
+        public void Start()
         {
-            bool continuePlay = true;
-            while (continuePlay)
+            while (ContinuePlay)
             {
-                continuePlay = false;
+                ContinuePlay = false;
                 Word word = _dictionary.SelectAWord(Rules.MinLengthWord, Rules.MaxLengthWord);
                
                 while (!IsFinished() && word != null)
+
                 {
-                    ShowMenu();
-                    ShowWord(word);
-                    ShowCharacter(NbErrors);
-                    string played = Ask();
-
-                    //test du retour clavier
-                    if (played.Equals(Rules._symbolRules))
-                    {
-                        ShowRules();
-                    }
-                    else if (played.Equals(Rules._symbolQuit))
-                    {
-                        Quit();
-                    }
-                    else
-                    {
-                        if (!word.Check(played))
-                        {
-                            NbErrors++;
-                        }
-                        else
-                        {
-                            IsWon = word.IsFound();
-                        }
-
-                        
-                    }
+                    Play(word);
                 }
+		if(word == null)
+		{
+		EndWords(word)
+		}else{
 
-                if (IsWon)
+                End();
+		}
+                Reset(word);
+            }
+        }
+
+	public void EndWords(Word word)
+	{
+               
+            Output.ShowEndWords();
+            _dictionary.setWords(_wordfilestorage.Load());
+              
+	}
+
+        public void Reset(Word word)
+        {
+
+            //demander si le joueur veut faire un reset
+            Output.ShowReset();
+            string response = Ask();
+            if (response.Equals(ConfigurationManager.AppSettings["symbolReset"]))
+            {
+                ContinuePlay = true;
+                IsWon = false;
+                NbErrors = 0;
+                word.Reset();
+            }
+        }
+
+        private void End()
+        {
+            if (IsWon)
+            {
+                Output.ShowWin();
+            }
+            else
+            {
+                Output.ShowLost();
+            }
+        }
+
+        private void Play(Word word)
+        {
+            ShowMenu();
+            string played = Ask();
+
+            //test du retour clavier
+            if (played.Equals(Rules._symbolRules))
+            {
+                ShowRules();
+            }
+            else if (played.Equals(Rules._symbolQuit))
+            {
+                Quit();
+            }
+            else
+            {
+                if (!word.Check(played))
                 {
-                    Output.ShowString(word.WordToFindString);
-                    Output.ShowWin();
+                    NbErrors++;
                 }
                 else
                 {
-                    Output.ShowString(word.WordToFindString);
-                    Output.ShowLost();
+                    IsWon = word.IsFound();
                 }
-                if (word == null)
-                {
-                    Output.ShowEndWords();
-                    _dictionary.setWords(_wordfilestorage.Load());
-                }
-                //demander si le joueur veut faire un reset
-                Output.ShowReset();
-                string response = Ask();
-                if (response.Equals(ConfigurationManager.AppSettings["symbolReset"]))
-                {
-                    continuePlay = true;
-                    IsWon = false;
-                    NbErrors = 0;
-                    word.Reset();
-                }
-                // no else
+
+
+                ShowWord(word);
+                ShowCharacter(NbErrors);
+
             }
         }
 
@@ -221,5 +251,7 @@ namespace Pendu
         {
             Output.ShowMenu();
         }
+
+        public bool continuePlay { get; set; }
     }
 }
