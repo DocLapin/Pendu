@@ -154,7 +154,7 @@ public Boolean IsFinal()
 Pour l'affichage du pendu, l'application utilise un fichier spécifique qui contient tous les états du pendu à affiche.  
 Les états sont séparés par leurs numéros. Seul les lignes entre chaques numéros d'états sont renvoyés.  
 Ex :  
-0
+0 //Début état 0
  
  
  
@@ -162,7 +162,7 @@ Ex :
  
  
 _____
-1
+1 //Fin état 0, Début état 1  
  _______
  |/ 
  |  
@@ -170,7 +170,7 @@ _____
  | 
  | 
 _|___
-2
+2 //Fin état 1, Début état 2  
  _______
  |/ |
  |  
@@ -178,7 +178,7 @@ _|___
  | 
  | 
 _|___
-3  
+3 //Fin état 2, Début état 3  
 
 L'état "0" est celui entre le numéro 0 et le 1.  
 Le fichier est au format ".txt".
