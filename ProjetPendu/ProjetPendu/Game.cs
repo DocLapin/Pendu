@@ -61,6 +61,13 @@ namespace Pendu
         }
 
         private bool _isWon = false;
+        private WordFileStorage _wordfilestorage;
+
+        public WordFileStorage WordFileStorage
+        {
+            get { return _wordfilestorage; }
+            private set { _wordfilestorage = value; }
+        }
 
         public bool IsWon
         {
@@ -79,13 +86,15 @@ namespace Pendu
         /// <param name="output"></param>
         /// <param name="rules"></param>
         /// <param name="character"></param>
-        public Game(Dictionary dictionary, IInput input, IOutput output, Rules rules, ICharacter character)
+        /// <param name="wordfilestorage"></param>
+        public Game(WordFileStorage wordfilestorage,Dictionary dictionary, IInput input, IOutput output, Rules rules, ICharacter character)
         {
             _dictionary = dictionary;
             _input = input;
             _output = output;
             _rules = rules;
             _character = character;
+            _wordfilestorage = wordfilestorage;
         }
 
         /// <summary>
@@ -98,8 +107,8 @@ namespace Pendu
             {
                 continuePlay = false;
                 Word word = _dictionary.SelectAWord(Rules.MinLengthWord, Rules.MaxLengthWord);
-                
-                while (!IsFinished())
+               
+                while (!IsFinished() && word != null)
                 {
                     ShowMenu();
                     ShowWord(word);
@@ -139,6 +148,11 @@ namespace Pendu
                 {
                     Output.ShowString(word.WordToFindString);
                     Output.ShowLost();
+                }
+                if (word == null)
+                {
+                    Output.ShowEndWords();
+                    _dictionary.setWords(_wordfilestorage.Load());
                 }
                 //demander si le joueur veut faire un reset
                 Output.ShowReset();

@@ -9,6 +9,7 @@ namespace Pendu
     public class Dictionary
     {
         private List<Word> _words;
+       
 
         public List<Word> Words
         {
@@ -69,8 +70,20 @@ namespace Pendu
         /// <returns>A randomly selected word</returns>
         private Word GetWord()
         {
-            int rndIndex = GetRandomNumber(Words.Count);
-            return (Word) Words[rndIndex];
+            Word w;
+            if (Words.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+
+                int rndIndex = GetRandomNumber(Words.Count);
+                w = Words[rndIndex];
+                Words.Remove(w);
+                return (Word)w;
+            }
+            
         }
 
         /// <summary>
@@ -129,6 +142,11 @@ namespace Pendu
                 int rndNumber = rnd.Next(maxValue);
                 return rndNumber;
             }
+        }
+
+        internal void setWords(List<Word> list)
+        {
+            Words = list;
         }
     }
 }

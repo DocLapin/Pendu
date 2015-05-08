@@ -50,5 +50,10 @@ namespace Pendu
         /// Asks if the player wants to reset the game
         /// </summary>
         void ShowReset();
+
+        /// <summary>
+        /// Show the menu for end of words
+        /// </summary>
+        void ShowEndWords();
     }
 }

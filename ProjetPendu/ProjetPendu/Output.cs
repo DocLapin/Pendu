@@ -56,5 +56,9 @@ namespace Pendu
         {
             Console.WriteLine(ConfigurationManager.AppSettings["resetPrompt"]);
         }
+        public void ShowEndWords()
+        {
+            Console.WriteLine(ConfigurationManager.AppSettings["endwordsPrompt"]);
+        }
     }
 }
