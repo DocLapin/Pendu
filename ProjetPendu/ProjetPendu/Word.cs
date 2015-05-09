@@ -6,12 +6,30 @@ using System.Text;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Represents a word
+    /// </summary>
     public class Word
     {
+        #region Fields and Properties
+        /// <summary>
+        /// Word to find
+        /// </summary>
         private char[] _wordToFind;
+
+        /// <summary>
+        /// Used in order to compare word to find and word to store
+        /// </summary>
         private char[] _wordToFindUpper;
+
+        /// <summary>
+        /// Indicates if a letter is found (true) or not (false).
+        /// </summary>
         private bool[] _checkTable;
 
+        /// <summary>
+        /// Gives the word to find in string
+        /// </summary>
         public string WordToFindString
         {
             get
@@ -19,6 +37,8 @@ namespace Pendu
                 return (new string(_wordToFind));
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Construct a word from a string
@@ -39,7 +59,7 @@ namespace Pendu
         }
 
         /// <summary>
-        /// Indicate if a word got the correct size agaisnt specified params
+        /// Indicates if a word got the correct size agaisnt specified params
         /// </summary>
         /// <param name="minLength">Minimal word length</param>
         /// <param name="maxLength">Maximal word length</param>
@@ -59,10 +79,8 @@ namespace Pendu
         }
 
         /// <summary>
-        /// Get word state which represent the word
-        /// with the found letters.
-        /// * if the letter isn't found 
-        /// [letter] otherwise. 
+        /// Gets word state which represent the word with the letters found.
+        /// * if the letter isn't found, [letter] otherwise. 
         /// </summary>
         /// <returns>the word state</returns>
         public string GetCurrentState()
@@ -82,6 +100,28 @@ namespace Pendu
             return state;
         }
 
+        /// <summary>
+        /// Indicates if a word is found
+        /// </summary>
+        /// <returns>True if the word is found, false otherwise</returns>
+        public bool IsFound()
+        {
+            foreach (bool letterFound in _checkTable)
+            {
+                if (!letterFound)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Check the word played against the word played.
+        /// Indicates if the player makes an error.
+        /// </summary>
+        /// <param name="wordPlayed">The word played</param>
+        /// <returns>False if the player makes an error, true otherwise.</returns>
         public bool Check(string wordPlayed) 
         {
             char[] wordPlayedChar = wordPlayed.ToUpper().ToCharArray();
@@ -95,6 +135,12 @@ namespace Pendu
             }
         }
 
+        /// <summary>
+        /// Update word's state with the letter played.
+        /// Indicates if the player makes an error.
+        /// </summary>
+        /// <param name="letter">The letter played</param>
+        /// <returns>False if the player makes an error, true otherwise.</returns>
         private bool CheckLetter(char letter)
         {
             bool check = false;
@@ -110,6 +156,12 @@ namespace Pendu
             return check;
         }
 
+        /// <summary>
+        /// Update word's state with the word played.
+        /// Indicates if the player makes an error.
+        /// </summary>
+        /// <param name="wordPlayedChar">Word played</param>
+        /// <returns>False if the player makes an error, true otherwise.</returns>
         private bool CheckWord(char[] wordPlayedChar)
         {
             if (_wordToFindUpper.SequenceEqual(wordPlayedChar))
@@ -124,24 +176,5 @@ namespace Pendu
             return false;
         }
 
-        public bool IsFound()
-        {
-            foreach (bool letterFound in _checkTable)
-            {
-                if (!letterFound)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        public void Reset()
-        {
-            for (int i = 0; i < _checkTable.Length; ++i)
-            {
-                _checkTable[i] = false;
-            }
-        }
     }
 }

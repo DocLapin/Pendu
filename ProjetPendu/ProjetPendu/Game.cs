@@ -7,6 +7,9 @@ using Pendu;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Represents the game
+    /// </summary>
     public class Game
     {
 
@@ -14,74 +17,21 @@ namespace Pendu
 
         private Dictionary _dictionary;
 
-        public Dictionary Dictionary
-        {
-            get { return _dictionary; }
-            private set { _dictionary = value; }
-        }
-
         private IInput _input;
-
-        public IInput Input
-        {
-            get { return _input; }
-            private set { _input = value; }
-        }
 
         private IOutput _output;
 
-        public IOutput Output
-        {
-            get { return _output; }
-            private set { _output = value; }
-        }
-
         private Rules _rules;
-
-        public Rules Rules
-        {
-            get { return _rules; }
-            private set { _rules = value; }
-        }
 
         private ICharacter _character;
 
-        public ICharacter Character
-        {
-            get { return _character; }
-            private set { _character = value; }
-        }
+        private IWordStorage _wordfilestorage;
 
         private int _nbErrors = 0;
 
-        public int NbErrors
-        {
-            get { return _nbErrors; }
-            private set { _nbErrors = value; }
-        }
-
         private bool _isWon = false;
-        private WordFileStorage _wordfilestorage;
-
-        public WordFileStorage WordFileStorage
-        {
-            get { return _wordfilestorage; }
-            private set { _wordfilestorage = value; }
-        }
-
-        public bool IsWon
-        {
-            get { return _isWon; }
-            private set { _isWon = value; }
-        }
 
         private bool _continuePlay = true;
-
-        public bool ContinuePlay
-        {
-            get { return _continuePlay; }
-            private set { _continuePlay = value; }
-        }
 
         #endregion
 
@@ -95,7 +45,7 @@ namespace Pendu
         /// <param name="rules"></param>
         /// <param name="character"></param>
         /// <param name="wordfilestorage"></param>
-        public Game(WordFileStorage wordfilestorage,Dictionary dictionary, IInput input, IOutput output, Rules rules, ICharacter character)
+        public Game(IWordStorage wordfilestorage, Dictionary dictionary, IInput input, IOutput output, Rules rules, ICharacter character)
         {
             _dictionary = dictionary;
             _input = input;
@@ -106,77 +56,44 @@ namespace Pendu
         }
 
         /// <summary>
-        /// start the game 
+        /// Starts the game 
         /// </summary>
         public void Start()
         {
-            while (ContinuePlay)
+            while (_continuePlay)
             {
-                ContinuePlay = false;
-                Word word = _dictionary.SelectAWord(Rules.MinLengthWord, Rules.MaxLengthWord);
-               
+                _continuePlay = false;
+                Word word = _dictionary.SelectAWord(_rules.MinLengthWord, _rules.MaxLengthWord);
                 while (!IsFinished() && word != null)
-
                 {
                     Play(word);
                 }
-		if(word == null)
-		{
-		EndWords(word)
-		}else{
-
-                End();
-		}
+                if (word == null)
+                {
+                    NoMoreWords();
+                }
+                else
+                {
+                    End();
+                }
                 Reset(word);
             }
         }
 
-	public void EndWords(Word word)
-	{
-               
-            Output.ShowEndWords();
-            _dictionary.setWords(_wordfilestorage.Load());
-              
-	}
-
-        public void Reset(Word word)
-        {
-
-            //demander si le joueur veut faire un reset
-            Output.ShowReset();
-            string response = Ask();
-            if (response.Equals(ConfigurationManager.AppSettings["symbolReset"]))
-            {
-                ContinuePlay = true;
-                IsWon = false;
-                NbErrors = 0;
-                word.Reset();
-            }
-        }
-
-        private void End()
-        {
-            if (IsWon)
-            {
-                Output.ShowWin();
-            }
-            else
-            {
-                Output.ShowLost();
-            }
-        }
-
+        /// <summary>
+        /// Play to the game with a word to find
+        /// </summary>
+        /// <param name="word">The word to find</param>
         private void Play(Word word)
         {
+            _dictionary.Remove(word);
             ShowMenu();
             string played = Ask();
-
-            //test du retour clavier
-            if (played.Equals(Rules._symbolRules))
+            if (played.Equals(_rules._symbolRules))
             {
                 ShowRules();
             }
-            else if (played.Equals(Rules._symbolQuit))
+            else if (played.Equals(_rules._symbolQuit))
             {
                 Quit();
             }
@@ -184,22 +101,19 @@ namespace Pendu
             {
                 if (!word.Check(played))
                 {
-                    NbErrors++;
+                    _nbErrors++;
                 }
                 else
                 {
-                    IsWon = word.IsFound();
+                    _isWon = word.IsFound();
                 }
-
-
-                ShowWord(word);
-                ShowCharacter(NbErrors);
-
+                ShowWordState(word);
+                ShowCharacter(_nbErrors);
             }
         }
 
         /// <summary>
-        /// ends the game
+        /// Quits the game
         /// </summary>
         private void Quit()
         {
@@ -207,51 +121,98 @@ namespace Pendu
         }
 
         /// <summary>
-        /// Is the game finished ?
+        /// Manage situation when there is no more words
         /// </summary>
-        /// <returns> True if the game is finished </returns>
-        private bool IsFinished()
+        private void NoMoreWords()
         {
-            return ((IsWon == true) || (NbErrors == Rules.MaxNbErrors));
+            _output.ShowNoMoreWords();
+            _dictionary.Words = _wordfilestorage.Load();
         }
 
         /// <summary>
-        /// show the rules
+        /// Reset the game
+        /// </summary>
+        /// <param name="word"></param>
+        private void Reset(Word word)
+        {
+            _output.ShowReset();
+            string response = Ask();
+            if (response.Equals(ConfigurationManager.AppSettings["symbolReset"]))
+            {
+                _continuePlay = true;
+                _isWon = false;
+                _nbErrors = 0;
+            }
+        }
+
+        /// <summary>
+        /// Manage the end of the game
+        /// </summary>
+        private void End()
+        {
+            if (_isWon)
+            {
+                _output.ShowWin();
+            }
+            else
+            {
+                _output.ShowLost();
+            }
+        }
+
+        /// <summary>
+        /// Is the game finished ?
+        /// </summary>
+        /// <returns> True if the game is finished, false otherwise </returns>
+        private bool IsFinished()
+        {
+            return ((_isWon == true) || (_nbErrors == _rules.MaxNbErrors));
+        }
+
+        #region Input and Output
+
+        /// <summary>
+        /// ShowS the rules
         /// </summary>
         private void ShowRules()
         {
-            Output.ShowRules(_rules);
+            _output.ShowRules(_rules);
         }
 
         /// <summary>
-        /// show the letter played
+        /// Shows the character with the appropriate state given by the number
         /// </summary>
+        /// <param name="numcharacter">Number of the state to show</param>
         private void ShowCharacter(int numcharacter)
         {
-            Output.ShowCharacter(Character, numcharacter);
+            _output.ShowCharacter(_character, numcharacter);
         }
 
         /// <summary>
-        /// show the word played
+        /// Shows the word played
         /// </summary>
-        private void ShowWord(Word word)
+        private void ShowWordState(Word word)
         {
-            Output.ShowWord(word);
-        }
-        
-        /// <summary>
-        /// what the player wants to input
-        /// </summary>
-	    private string Ask()
-        {
-             return Input.Input();
+            _output.ShowWordState(word);
         }
 
+        /// <summary>
+        /// What the player wants to input
+        /// </summary>
+        private string Ask()
+        {
+            return _input.Input();
+        }
+
+        /// <summary>
+        /// Shows the menu
+        /// </summary>
         private void ShowMenu()
         {
-            Output.ShowMenu();
+            _output.ShowMenu();
         }
 
-        public bool continuePlay { get; set; }
+        #endregion
+
     }
 }

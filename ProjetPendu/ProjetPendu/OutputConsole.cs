@@ -8,14 +8,16 @@ using Pendu;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Provides services to use the console <see cref="IOutput"/>
+    /// </summary>
     public class OutputConsole : IOutput
     {
         public void ShowMenu()
         {
             Console.WriteLine(ConfigurationManager.AppSettings["mainMenu"]);
-
-
         }
+
         public void ShowRules(Rules r)
         {
             Console.WriteLine(r.RulesDetails);
@@ -23,23 +25,17 @@ namespace Pendu
 
         public void ShowCharacter(ICharacter character, int numcharacter)
         {
-           
-            character.SetFichier(@ConfigurationManager.AppSettings["defaultCharacterPath"]);
-            String[] bonhomme = character.GetEtat(numcharacter);
-            foreach (String s in bonhomme)
+            character.SetSource(@ConfigurationManager.AppSettings["defaultCharacterPath"]);
+            String[] characterState = character.GetState(numcharacter);
+            foreach (String s in characterState)
             {
                 Console.WriteLine(s);
             }
         }
 
-        public void ShowWord(Word w)
+        public void ShowWordState(Word w)
         {
             Console.WriteLine(w.GetCurrentState());
-        }
-
-        public void ShowString(String s)
-        {
-            Console.WriteLine("Le mot était : " + s);
         }
 
         public void ShowLost()
@@ -56,7 +52,8 @@ namespace Pendu
         {
             Console.WriteLine(ConfigurationManager.AppSettings["resetPrompt"]);
         }
-        public void ShowEndWords()
+
+        public void ShowNoMoreWords()
         {
             Console.WriteLine(ConfigurationManager.AppSettings["endwordsPrompt"]);
         }

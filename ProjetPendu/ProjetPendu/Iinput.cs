@@ -6,8 +6,11 @@ using Pendu;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Provides a service to use input
+    /// </summary>
     public interface IInput
     {
-         String Input();
+         string Input();
     }
 }

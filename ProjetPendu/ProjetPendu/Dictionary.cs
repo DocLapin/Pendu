@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Represents the dictionary which manage words
+    /// </summary>
     public class Dictionary
     {
-        private List<Word> _words;
-       
+        #region Fields and Properties
 
+        private List<Word> _words;
+
+        /// <summary>
+        /// Words of the dictionary
+        /// </summary>
         public List<Word> Words
         {
             get { return _words; }
-            private set { _words = value; }
+            set { _words = value; }
         }
 
+        #endregion
+
         /// <summary>
-        /// Construct a Dictionary which contain words
+        /// Construct a Dictionary which contains words
         /// </summary>
-        /// <param name="words">Words contained by Dictionary</param>
+        /// <param name="words">Words contained by the dictionary</param>
         public Dictionary(List<Word> words)
         {
             if (words.Count() == 0)
@@ -29,17 +38,8 @@ namespace Pendu
             }
             else
             {
-                Words = words;
+                _words = words;
             }
-        }
-
-        /// <summary>
-        /// Select a word in the dictionary
-        /// </summary>
-        /// <returns>A word</returns>
-        public Word SelectAWord()
-        {
-            return GetWord();
         }
         
         /// <summary>
@@ -47,7 +47,9 @@ namespace Pendu
         /// </summary>
         /// <param name="minLength">Minimal length of the word</param>
         /// <param name="maxLength">Maximal length of the word</param>
-        /// <returns>A word which correspond to the specified minimal length and maximal length</returns>
+        /// <returns>A randomly selected word which correspond to the specified minimal length and maximal length.
+        /// Null if no words correspond to the specified minimal length and maximal length. 
+        /// </returns>
         public Word SelectAWord(int minLength, int maxLength)
         {
             if ((minLength <= 0) || (maxLength <= 0))
@@ -60,51 +62,27 @@ namespace Pendu
             }
             else
             {
-                return GetWord(minLength, maxLength);
+                List<Word> wordsWithCorrectSize = GetWordsWithCorrectSize(minLength, maxLength);
+                int nbOfWords = wordsWithCorrectSize.Count();
+                if (nbOfWords == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    int rndIndex = GetRandomNumber(nbOfWords);
+                    return (Word)wordsWithCorrectSize[rndIndex];
+                }
             }
         }
 
         /// <summary>
-        /// Select a word randomly
+        /// Remove a word
         /// </summary>
-        /// <returns>A randomly selected word</returns>
-        private Word GetWord()
+        /// <param name="word">word to remove</param>
+        public void Remove(Word word)
         {
-            Word w;
-            if (Words.Count == 0)
-            {
-                return null;
-            }
-            else
-            {
-
-                int rndIndex = GetRandomNumber(Words.Count);
-                w = Words[rndIndex];
-                Words.Remove(w);
-                return (Word)w;
-            }
-            
-        }
-
-        /// <summary>
-        /// Select a word randomly wich correspond to the specified minimal length and maximal length
-        /// </summary>
-        /// <returns>A randomly selected word wich correspond to the specified minimal length and maximal length. 
-        /// Null if no words correspond to the specified minimal length and maximal length. 
-        /// </returns>
-        private Word GetWord(int minLength, int maxLength)
-        {
-            List<Word> wordsWithCorrectSize = GetWordsWithCorrectSize(minLength, maxLength);
-            int nbOfWords = wordsWithCorrectSize.Count();
-            if (nbOfWords == 0)
-            {
-                return null;
-            }
-            else
-            {
-                int rndIndex = GetRandomNumber(nbOfWords);
-                return (Word) wordsWithCorrectSize[rndIndex];
-            }
+            _words.Remove(word);
         }
 
         /// <summary>
@@ -114,7 +92,7 @@ namespace Pendu
         private List<Word> GetWordsWithCorrectSize(int minLength, int maxLength)
         {
             List<Word> wordsWithCorrectSize = new List<Word>();
-            foreach (Word word in Words)
+            foreach (Word word in _words)
             {
                 if (word.GotCorrectSize(minLength, maxLength))
                 {
@@ -144,9 +122,5 @@ namespace Pendu
             }
         }
 
-        internal void setWords(List<Word> list)
-        {
-            Words = list;
-        }
     }
 }

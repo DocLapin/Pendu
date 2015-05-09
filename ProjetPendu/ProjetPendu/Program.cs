@@ -6,6 +6,9 @@ using Autofac;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Start class
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

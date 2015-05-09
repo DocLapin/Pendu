@@ -6,81 +6,73 @@ using System.IO;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Represents the character
+    /// </summary>
     public class Character : ICharacter
     {
+        #region Fields and Properties
 
-        private static readonly int NUM_MAX_STATE = 8;
         private static readonly int NUM_MIN_STATE = 1;
+
         private static readonly int NUM_NEXT_STATE = 7;
 
-        private string filepath;
+        private string _filePath;
 
-        public static T[] SubArray<T>(T[] data, int index, int length)
+        #endregion
+
+        /// <summary>
+        /// Gets the initial state of the character (generaly the ground)
+        /// </summary>
+        /// <param name="num">The number of the state to get</param>
+        /// <returns>String arrray of the state</returns>
+        public string[] GetState(int numero)
+        {
+            if (!File.Exists(_filePath))
+            {
+                throw new FileNotFoundException();
+            }
+            else
+            {
+                string numdep = numero.ToString();
+                numero++;
+                string numfin = numero.ToString();
+                int lignedebut = NUM_MIN_STATE;
+                int lignefin = NUM_NEXT_STATE;
+                string[] lines = File.ReadAllLines(_filePath);
+                string[] sublines;
+                for (int i = 0; i <= lines.Length-1; i++)
+                {
+                    if (lines[i].Contains(numdep))
+                    {
+                        lignedebut = i + 1;
+                    }
+                    // no else
+                    if (lines[i].Contains(numfin))
+                    {
+                        lignefin = i - 1;
+                    }
+                    // no else
+                }
+                sublines = SubArray<String>(lines, lignedebut, lignefin - lignedebut + 1);
+                return sublines;
+            }
+        }
+
+        /// <summary>
+        /// Sets the source to load the character
+        /// </summary>
+        public void SetSource(string s)
+        {
+            _filePath = s;
+        }
+
+        private static T[] SubArray<T>(T[] data, int index, int length)
         {
             T[] result = new T[length];
             Array.Copy(data, index, result, 0, length);
             return result;
         }
 
-
-        /// <summary>
-        /// Set the file to use as the character
-        /// </summary>
-        /// <param name="fileName">the file path of the file</param>
-        public void SetFichier(string fileName)
-        {
-            if (fileName.Length > 0)
-                filepath = fileName;
-        }
-
-        /// <summary>
-        /// Get the initial state of the pendu (generaly the ground)
-        /// </summary>
-        /// <param name="num">The number of the state to get</param>
-        /// <returns>String arrray of the state</returns>
-        public String[] GetEtat(int numero)
-        {
-            if (!File.Exists(filepath))
-            {
-                throw new FileNotFoundException();
-            }
-            else
-            {
-                String numdep = numero.ToString();
-                numero++;
-                String numfin = numero.ToString();
-                int lignedebut = NUM_MIN_STATE;
-                int lignefin = NUM_NEXT_STATE;
-                String[] lines = File.ReadAllLines(@filepath);
-                String[] Sublines;
-                for (int i = 0; i <= lines.Length-1; i++)
-                {
-                    if (lines[i].Contains(numdep))
-                    {
-                        lignedebut = i + 1;
-
-                    }
-                    if (lines[i].Contains(numfin))
-                    {
-                        lignefin = i - 1;
-                    }
-
-                }
-
-                Sublines = SubArray<String>(lines, lignedebut, lignefin-lignedebut+1);
-
-                return Sublines;
-            }
-        }
-
-        /// <summary>
-        /// Tell if the previous state showed is the final state
-        /// </summary>
-        /// <param name="num">the number of the state you want to test</param>
-        /// <returns>True or False</returns>
-        public bool IsFinal(int numero)
-        {
-            return numero == NUM_MAX_STATE;
-        }
     }
 }

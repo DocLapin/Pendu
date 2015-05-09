@@ -9,10 +9,10 @@ namespace Pendu
     public class InputConsole : IInput
     {
         /// <summary>
-        /// Read the next input 
+        /// Reads the next input 
         /// </summary>
         /// <returns> Input pressed by the player</returns>
-        public String Input()
+        public string Input()
         {
             return Console.ReadLine();
         }

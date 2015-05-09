@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Provides a service to load words
+    /// </summary>
     public interface IWordStorage
     {
         List<Word> Load();

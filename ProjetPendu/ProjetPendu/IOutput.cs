@@ -6,6 +6,9 @@ using Pendu;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Provides services to use output
+    /// </summary>
     public interface IOutput
     {
         /// <summary>
@@ -18,20 +21,15 @@ namespace Pendu
         /// </summary>
         /// <param name="r"></param>
         void ShowRules(Rules r);
+
         /// <summary>
-        /// Show the word to find with the hidden letters
+        /// Show the word to find with hidden letters
         /// </summary>
         /// <param name="w"></param>
-        void ShowWord(Word w);
+        void ShowWordState(Word w);
 
         /// <summary>
-        /// Show string
-        /// </summary>
-        /// <param name="s"></param>
-        void ShowString(String s);
-
-        /// <summary>
-        /// Show the character
+        /// Shows the character
         /// </summary>
         /// <param name="c"></param>
         void ShowCharacter(ICharacter character, int numcharacter);
@@ -52,8 +50,8 @@ namespace Pendu
         void ShowReset();
 
         /// <summary>
-        /// Show the menu for end of words
+        /// Shows the message when there is no more words
         /// </summary>
-        void ShowEndWords();
+        void ShowNoMoreWords();
     }
 }

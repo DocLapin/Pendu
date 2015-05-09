@@ -50,13 +50,13 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Input.cs" />
+    <Compile Include="InputConsole.cs" />
     <Compile Include="IInput.cs" />
     <Compile Include="Dictionary.cs" />
     <Compile Include="ICharacter.cs" />
     <Compile Include="IOutput.cs" />
     <Compile Include="IWordStorage.cs" />
-    <Compile Include="Output.cs" />
+    <Compile Include="OutputConsole.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

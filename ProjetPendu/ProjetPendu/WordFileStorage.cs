@@ -8,38 +8,45 @@ using System.Configuration;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Provides services if words are stored in a file <see cref="WordFileStorage"/>
+    /// </summary>
     public class WordFileStorage : IWordStorage
     {
 
+        #region Fields and Properties
+
+        /// <summary>
+        /// File path to the file which contains words
+        /// </summary
         private string _filePath;
 
-        public string FilePath
-        {
-            get { return _filePath; }
-            private set { _filePath = value; }
-        }
+        #endregion
 
+        /// <summary>
+        /// Construct a WordFileStorage from the default file which contains words
+        /// </summary>
         public WordFileStorage()
         {
-            FilePath = ConfigurationManager.AppSettings["defaultWordsFilePath"];
+            _filePath = ConfigurationManager.AppSettings["defaultWordsFilePath"];
         }
 
         /// <summary>
-        /// Construct a wordFileStorage from a file path
+        /// Construct a WordFileStorage from a file which contains words
         /// </summary>
-        /// <param name="filePath">File's file path</param>
+        /// <param name="filePath">File path</param>
         public WordFileStorage(String filePath)
         {
-            FilePath = filePath;
+            _filePath = filePath;
         }
 
         /// <summary>
-        /// Load the file
+        /// Loads the file
         /// </summary>
         /// <returns>Words obtained by reading the file</returns>
         public List<Word> Load()
         {
-            if (!File.Exists(FilePath))
+            if (!File.Exists(_filePath))
             {
                 throw new FileNotFoundException();
             }
@@ -50,13 +57,13 @@ namespace Pendu
         }
 
         /// <summary>
-        /// Read the file
+        /// Reads the file
         /// </summary>
         /// <returns>Words contained in the file</returns>
         private List<Word> ReadWords()
         {
             List<Word> wordList = new List<Word>();
-            using (StreamReader sr = File.OpenText(FilePath))
+            using (StreamReader sr = File.OpenText(_filePath))
             {
                 string s = String.Empty;
                 while ((s = sr.ReadLine()) != null)

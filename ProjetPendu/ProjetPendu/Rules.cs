@@ -29,8 +29,6 @@ namespace Pendu
             get { return _maxNbErrors; }
         }
 
-        private readonly string _mainRules;
-
         private readonly string _rulesDetails;
         public string _symbolRules { get; private set; }
         public string _symbolQuit { get; private set; }

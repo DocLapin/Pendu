@@ -23,24 +23,12 @@ namespace ProjetPenduTests
             words.Add(new Word("UnitTest"));
             Dictionary dico = new Dictionary(words);
             string expected = "UnitTest";
-            string actual = dico.SelectAWord().WordToFindString;
-            Assert.AreEqual(expected, actual);
- 
-        }
-
-        [TestMethod]
-        public void TestSelectAWord2()
-        {
-            List<Word> words = new List<Word>();
-            words.Add(new Word("UnitTest"));
-            Dictionary dico = new Dictionary(words);
-            string expected = "UnitTest";
             string actual = dico.SelectAWord(1, 8).WordToFindString;
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void TestSelectAWord3()
+        public void TestSelectAWord2()
         {
             List<Word> words = new List<Word>();
             words.Add(new Word("UnitTest"));
@@ -51,7 +39,7 @@ namespace ProjetPenduTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestSelectAWord4()
+        public void TestSelectAWord3()
         {
             List<Word> words = new List<Word>();
             words.Add(new Word("UnitTest"));
@@ -61,7 +49,7 @@ namespace ProjetPenduTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestSelectAWord5()
+        public void TestSelectAWord4()
         {
             List<Word> words = new List<Word>();
             words.Add(new Word("UnitTest"));
@@ -71,7 +59,7 @@ namespace ProjetPenduTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestSelectAWord6()
+        public void TestSelectAWord5()
         {
             List<Word> words = new List<Word>();
             words.Add(new Word("UnitTest"));
