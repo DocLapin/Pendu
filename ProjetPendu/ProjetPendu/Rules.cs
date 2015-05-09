@@ -6,8 +6,14 @@ using System.Configuration;
 
 namespace Pendu
 {
+    /// <summary>
+    /// Represents values about rules and symbol
+    /// </summary>
     public class Rules
     {
+
+        #region Fields and Properties
+
         private readonly int _minLengthWord;
 
         public int MinLengthWord
@@ -30,13 +36,34 @@ namespace Pendu
         }
 
         private readonly string _rulesDetails;
-        public string _symbolRules { get; private set; }
-        public string _symbolQuit { get; private set; }
 
         public string RulesDetails
         {
             get { return _rulesDetails; }
         }
+
+        private readonly string _symbolRules;
+
+        public string SymbolRules
+        {
+            get { return _symbolRules; }
+        }
+
+        private readonly string _symbolQuit;
+       
+        public string SymbolQuit
+        {
+            get { return _symbolQuit; }
+        }
+
+        private readonly string _symbolReset;
+
+        public string SymbolReset
+        {
+            get { return _symbolReset; }
+        }
+
+        #endregion
 
         public Rules()
         {
@@ -46,6 +73,18 @@ namespace Pendu
             _rulesDetails = ConfigurationManager.AppSettings["rulesDetails"];
             _symbolRules = ConfigurationManager.AppSettings["symbolRules"];
             _symbolQuit = ConfigurationManager.AppSettings["symbolQuit"];
+            _symbolReset = ConfigurationManager.AppSettings["symbolReset"];
+        }
+
+        public Rules(int minLengthWord, int maxLengthWord, int maxNbErrors, string rulesDetails, string symbolRules, string symbolQuit, string symbolReset)
+        {
+            _minLengthWord = minLengthWord;
+            _maxLengthWord = maxLengthWord;
+            _maxNbErrors = maxNbErrors;
+            _rulesDetails = rulesDetails;
+            _symbolRules = symbolRules;
+            _symbolQuit = symbolQuit;
+            _symbolReset = _symbolReset;
         }
 
     }

@@ -89,11 +89,11 @@ namespace Pendu
             _dictionary.Remove(word);
             ShowMenu();
             string played = Ask();
-            if (played.Equals(_rules._symbolRules))
+            if (played.Equals(_rules.SymbolRules))
             {
                 ShowRules();
             }
-            else if (played.Equals(_rules._symbolQuit))
+            else if (played.Equals(_rules.SymbolQuit))
             {
                 Quit();
             }
@@ -137,7 +137,7 @@ namespace Pendu
         {
             _output.ShowReset();
             string response = Ask();
-            if (response.Equals(ConfigurationManager.AppSettings["symbolReset"]))
+            if (response.Equals(_rules.SymbolReset))
             {
                 _continuePlay = true;
                 _isWon = false;
