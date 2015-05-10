@@ -176,5 +176,25 @@ namespace Pendu
             return false;
         }
 
+        /// <summary>
+        /// Gets the number of letters to find.
+        ///  
+        /// </summary>
+        /// <returns>nummber of letters to find</returns>
+        public int GetNumberLetter()
+        {
+            int number = 0;
+            
+            for (int i = 0; i < _wordToFind.Length; i++)
+            {
+                if (!_checkTable[i])
+                {
+                    number++;
+                }
+                
+            }
+            return number;
+        }
+
     }
 }

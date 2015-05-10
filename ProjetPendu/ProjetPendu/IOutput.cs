@@ -53,5 +53,10 @@ namespace Pendu
         /// Shows the message when there is no more words
         /// </summary>
         void ShowNoMoreWords();
+
+        /// <summary>
+        /// Shows the number of letters remaining
+        /// </summary>
+        void ShowNumber(Word w);
     }
 }

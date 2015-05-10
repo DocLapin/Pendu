@@ -57,5 +57,10 @@ namespace Pendu
         {
             Console.WriteLine(ConfigurationManager.AppSettings["endwordsPrompt"]);
         }
+
+        public void ShowNumber(Word w)
+        {
+            Console.WriteLine(ConfigurationManager.AppSettings["numberlettersPrompt"] + w.GetNumberLetter().ToString());
+        }
     }
 }

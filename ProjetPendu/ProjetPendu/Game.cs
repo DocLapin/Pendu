@@ -107,8 +107,11 @@ namespace Pendu
                 {
                     _isWon = word.IsFound();
                 }
+                
                 ShowWordState(word);
+                ShowNumberLetter(word);
                 ShowCharacter(_nbErrors);
+                
             }
         }
 
@@ -194,6 +197,14 @@ namespace Pendu
         private void ShowWordState(Word word)
         {
             _output.ShowWordState(word);
+        }
+
+        /// <summary>
+        /// Shows the number of letters remainig
+        /// </summary>
+        private void ShowNumberLetter(Word word)
+        {
+            _output.ShowNumber(word);
         }
 
         /// <summary>
