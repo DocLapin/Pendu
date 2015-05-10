@@ -5,11 +5,11 @@
 
 **Participants au projet**
 
- - Nicolas Notari 
- - Guillaume Thomas 
- - Damien Jacquet 
- - Simon Conejo  
- - Aurélien Saudemont  
+ - Nicolas Notari
+ - Guillaume Thomas
+ - Damien Jacquet
+ - Simon Conejo
+ - Aurélien Saudemont
 
 --------------
 
@@ -21,21 +21,21 @@ L'atelier de Génie Logiciel est un cours nous apprenant les différentes étape
 
 Dans ce projet, nous avons eu à faire le rôle de MOA (Maitrise d'Ouvrage) et de MOE (Maitrise d'Oeuvre) ainsi que le développement complet du projet.
 
-Nous avons ainsi joué le rôle de MOA pour le projet "TicTacToe". Nous avons donc dû rédiger un cahier des charges ainsi que des spécifications fonctionnelles. Les personne du groupe Puissance 4 ont fait la même chose pour notre projet, en temps que notre MOA.  
-L'évolution demandée à la MOE du TicTacToe fut la sauvegarde de la partie au format JSON.  
+Nous avons ainsi joué le rôle de MOA pour le projet "TicTacToe". Nous avons donc dû rédiger un cahier des charges ainsi que des spécifications fonctionnelles. Les personne du groupe Puissance 4 ont fait la même chose pour notre projet, en temps que notre MOA.
+L'évolution demandée à la MOE du TicTacToe fut la sauvegarde de la partie au format JSON.
 
 ***
 
 ##Projet Pendu##
 
-Suite à notre cours de Génie Logiciel, nous avons dû, afin de mettre en pratique les différents cours donnés auparavant par Mr Alexandre Boyer, faire un projet en équipe. Ce projet devait respecter les différentes normes apprisent durant les cours de Géniel Logiciel :
+Suite à notre cours de Génie Logiciel, nous avons dû, afin de mettre en pratique les différents cours donnés auparavant par Mr Alexandre Boyer, faire un projet en équipe. Ce projet devait respecter les différentes normes et patrons d'architectures appris durant les cours de Géniel Logiciel :
 
  - **Git** afin de faciliter le développement en équipe
  - Utilisation d'**injection de dépendance**
- - Inversion de contrôle IOC  
- - SRP  
+ - Inversion de contrôle **IOC**  
+ - Single Responsibility Principle  **SRP**  
 
-Afin de réaliser ce projet, nous avons été contraint d'utiliser le langage C#, un langage que nous avons dû apprendre car nous n'avons pas eu de cours sur ce dernier. Il est cependant assez proche du langage C++ que nous avions appris durant notre DUT informatique ainsi que du langage Java. 
+Afin de réaliser ce projet, nous avons été contraint d'utiliser le langage **C#**, un langage que nous avons dû apprendre car nous n'avons pas eu de cours sur ce dernier. Il est cependant assez proche du langage C++ que nous avions appris durant notre DUT informatique ainsi que du langage Java. 
 
 L'IDE que nous avons utilisé est **Visual Studio**, dans sa dernière version (2013). Cet IDE, conçu par Microsoft, est spécialement conçu autour du C et de ses dérivés (C++/C#), il est donc adapté à notre utilisation. De plus, il possède de nombreux outils intégrés et très ergonomique concernant l'auto-complétement, l'automatisation de tâches, la création de tests unitaires ainsi qu'un client Git intégré.
 
@@ -45,12 +45,28 @@ Le cahier des charges établit par notre MOA stipule que ce projet doit être un
 
 ###Début du Projet
 
-La première étape du projet fut de lire le cahier des charges fournit par notre MOA. Ensuite nous avons établi les différentes fonctions de notre application. Une fois les principales fonctions décidées nous avons réparti ces fonctions entre nous. Il ne restait plus qu'à développer les différentes fonctions données à chacun.
+La première étape du projet fut de lire le cahier des charges fournit par notre MOA. Ensuite nous avons établi les différentes fonctions de notre application. Une fois les principales fonctions décidées nous avons réparti ces fonctions entre nous. Il ne restait plus qu'à développer les différentes fonctions données à chacun. La répartition du travail s'est faites en fonction des demandes et des préférences de chaques développeurs.
+
+###Injection de dépendances
+
+L'utilisation du mécanisme d'injection de dépendances nous a permis d'éviter la création d'objet, et la dépendance de nos classes envers d'autres classes. Le mécanisme est simple : il consiste à créer une interface implémentant la classe dépendantes et à . Il suffit ensuite d'appeler l'objet créer par cette 
+
+Ce mécanisme permet de changer l'implémentation des classes sans avoir à modifier l'implémentation de celles qui les "consomment".
+
+Il est conseillé de commencer par utiliser ce mécanisme dès le début du projet. Par la suite il est en effet très long de devoir retravailler toutes les fonctions de chaques classes afin de changer les
+
+###Single Responsibility Principle
+Le Single Responsibility Principle (SRP) est une manière de coder qui revient simplement à dire qu'une classe n'a qu'une seule et unique fonction métier. Cela permet de plus facilement débuger son code en cas de problème et également de voir quelle fonction pose problème en cas d'erreur dans les résultats attendus.
+
+Le problème avec ce design pattern est qu'il demande la création de nombreux fichiers, ce qui peut rapidement devenir difficile à gérer pour les développeurs. Nous avons ainsi eux 
 
 ###Les tests unitaires
+Chaques développeurs avait plusieurs fonctions associées. Ce dernie devait s'occuper de les coder ainsi que de s'occuper des différents tests unitaires afin de vérifier leur bon fonctionnement.
 
 Afin d'éviter qu'un changement dans le code n'entraine des erreurs dans d'autres portions, nous avons mis en place plusieurs tests unitaires permettant de vérifier que les fonctions crées renvoyaient bien les informations que nous attendions.
-Nous avons décidé que la série de tests unitaires devaient être lancer avant chaque commit afin d'éviter les erreurs qui peuvent apparaitre sur d'autres objets.
+Nous avons décidé que la série de tests unitaires devaient être lancée avant chaque commit afin d'éviter les erreurs qui peuvent apparaitre sur d'autres objets.
+
+
 
 # Conclusion
 
