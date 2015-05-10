@@ -75,3 +75,16 @@
 **But du scénario** : Restaurer la sauvegarde d'une partie   
 **Déroulement** : L'un des joueurs restaure la sauvegarde de la partie     
 **Résultat attendu** : La partie est restaurée du format JSON  
+
+###Scénario n°13
+
+**But du scénario** : Tester la fin d'une partie après au moins une égalité   
+**Déroulement** : Les joueurs jouent 5 manches avec au moins une manche d'égalité puis une autre supplémentaire    
+**Résultat attendu** : La partie doit se terminer avec l'affichage du score et du gagnant     
+
+
+###Scénario n°14
+
+**But du scénario** : Tester le non positionnement d'un symbole dans une case déjà prise    
+**Déroulement** : L'un des joueurs joue son symbole dans une case non vide      
+**Résultat attendu** : Le symbole ne se place pas et il peut continuer à jouer       
