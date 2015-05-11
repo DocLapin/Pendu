@@ -68,6 +68,9 @@ Vérifier la lettre et fait appel à l’affichage de la potence dans le cas où
 
 * **Afficher lettres trouvées :**
 
-Cette fonction affiche les lettres déjà trouvées par le joueur.
+Cette fonction affiche les lettres déjà trouvées par le joueur.  
 
+* **Afficher nombre de lettres restantes :**
+
+Cette fonction affiche le nombre de  lettres restantes à trouvées par le joueur.  
 
