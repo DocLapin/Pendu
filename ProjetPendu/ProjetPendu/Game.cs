@@ -74,7 +74,7 @@ namespace Pendu
                 }
                 else
                 {
-                    End();
+                    End(word);
                 }
                 Reset(word);
             }
