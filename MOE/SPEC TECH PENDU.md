@@ -2,11 +2,11 @@
 
 ## Environnement techniques
 
-Langage de programmation : C#.
-Gestionnaire de versions : Git.
-EDI : Microsoft Visual Studio.
-Outil pour les tests unitaires : intégré à Visual Studio.
-Outil pour l'injection de dépendance : plugin Autofac.
+Langage de programmation : C#.  
+Gestionnaire de versions : Git.  
+EDI : Microsoft Visual Studio.  
+Outil pour les tests unitaires : intégré à Visual Studio.  
+Outil pour l'injection de dépendance : plugin Autofac.  
 
 ## Conventions
 
