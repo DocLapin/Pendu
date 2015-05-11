@@ -1,4 +1,4 @@
-# Spécifications techniques
+﻿# Spécifications techniques
 
 ## Environnement techniques
 
@@ -52,10 +52,11 @@ Le dictionnaire est stocké sous forme de fichier délimité, ce fichier est cha
 
 #### Signature des méthodes
 
-public Dictionnary(List<Word> ...)
-public void Load()  
-public Word SelectAWord()  
+public Dictionnary(List<Word> ...)  
 public Word SelectAWord(int minimalSize, int maximalSize)  
+public void Remove(Word word)  
+private List<Word> GetWordsWithCorrectSize(int minLength, int maxLength)  
+private int GetRandomNumber(int maxValue)  
 
 ### Stockage des mots (IWordStorage)
 
@@ -75,9 +76,13 @@ Représente les mots d'une longueur comprise entre 3 et 10 lettres.
 #### Signature des méthodes
 
 public Word(String)  
-public int GetSize()  
-public int GetNbLetterFound()  
-public boolean IsLetterCorrect(Letter ...)  
+public int GetNumberLetter()  
+private bool CheckWord(char[] wordPlayedChar)  
+private bool CheckLetter(char letter)  
+public bool Check(string wordPlayed)  
+public bool IsFound()  
+public string GetCurrentState()  
+public bool GotCorrectSize(int minLength, int maxLength)  
 
 ### Jeu (Game)
 
@@ -85,15 +90,20 @@ Représente le jeu.
 
 #### Signature des méthodes
 
-public Game(Joueur ..., Dictionnary ..., IInput ..., IOutput ..., Rules ..., ICharacter ...)  
+public Game(IWordStorage ..., Dictionnary ..., IInput ..., IOutput ..., Rules ..., ICharacter ...)  
+public void Start()  
 public void Play()  
-public void Reset()  
 public void Quit()  
 public boolean IsFinished()
 public void ShowRules()  
 public void ShowCharacter()  
 public void ShowWord()  
 public string Ask()  
+private void NoMoreWords()  
+private void End(Word word)  
+private void ShowWordState(Word word)  
+private void ShowNumberLetter(Word word)  
+private void ShowMenu()  
 
 ### Règles (Rules)
 
@@ -101,7 +111,8 @@ Représente toutes les données concernant les règles du jeu (longueur minimale
 
 #### Signature des méthodes
  
-public void ShowRules(Rules ...)  
+ public Rules()  
+ public Rules(int minLengthWord, int maxLengthWord, int maxNbErrors, string rulesDetails, string symbolRules, string symbolQuit, string symbolReset)  
 + attributs pour représenter les règles.
 
 ### Sortie (IOutput)
@@ -111,9 +122,16 @@ La classe OutputConsole implémentera donc l'interface IOutput
 
 #### Signature des méthodes
 
-public void ShowRules(Rules ...)  
-public void ShowCharacter(Character ...)  
-public void ShowWord(Word ...)  
+void ShowMenu()  
+void ShowCharacter(ICharacter ..., int ...)  
+void ShowRules(Rules r)  
+void ShowWord(Word ...)  
+void ShowWordState(Word w)  
+void ShowLost(Word word)  
+void ShowWin()  
+void ShowReset()  
+void ShowNoMoreWords()  
+void ShowNumber(Word w)  
 
 ### Entrée (IInput)
 
@@ -122,7 +140,7 @@ La classe InputConsole implémentera donc l'interface IInput
 
 #### Signature des méthodes
 
-public String Saisie()
+public String Input()
 
 ### Personnage (ICharacter)
 
@@ -131,9 +149,8 @@ Elle est affichée état par état.
 
 #### Signature des méthodes
 
-public void SetFichier(String fileName)  
-public String[] GetEtat(int num)  
-public Boolean IsFinal()  
+string[] GetState(int num)  
+void SetSource(string s)   
 
 ## Fichiers spécifiques
 
