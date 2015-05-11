@@ -1,16 +1,16 @@
-﻿## Spécifications fonctionnelles du Pendu ##
+# Spécifications fonctionnelles du Pendu
 
-# Caractéristiques de la solution
+## Caractéristiques de la solution
 
 La solution est un programme affiché sous console permettant de jouer à jeu du "pendu". Il s'agit pour un joueur de retrouver un mot choisi aléatoirement par l’ordinateur dans un dictionnaire défini préalablement. 
 
 Le joueur peut faire un nombre fini de propositions. Après 8 propositions erronées, le joueur à perdu la partie.
 
-# Acteurs du projet
+## Acteurs du projet
 
 La direction métier : l’équipe "tictactoe".
 
-# Documentation référencée
+## Documentation référencée
 
 SFD FONC PENDU.md : spécifications fonctionnelles détaillées de la solution (document présent).
 
@@ -20,11 +20,11 @@ SPEC TECH PENDU.md : spécifications techniques de la solution.
 
 TO DO.md : liste des activités à réaliser.
 
-# Population des utilisateurs visée
+## Population des utilisateurs visée
 
 Les utilisateurs n’ont pas de qualifications particulières à avoir. Les utilisateurs doivent avoir une bonne connaissance de la langue française, et savoir utiliser la console, le clavier et la souris.
 
-# Fonctions
+## Fonctions
 
 * **Choisir mot :**
 
