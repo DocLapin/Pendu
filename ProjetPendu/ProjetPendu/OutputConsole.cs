@@ -38,9 +38,9 @@ namespace Pendu
             Console.WriteLine(w.GetCurrentState());
         }
 
-        public void ShowLost()
+        public void ShowLost(Word w)
         {
-            Console.WriteLine(ConfigurationManager.AppSettings["lostPrompt"]);
+            Console.WriteLine(ConfigurationManager.AppSettings["lostPrompt"] + w.WordToFindString);
         }
 
         public void ShowWin()

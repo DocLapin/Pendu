@@ -151,7 +151,7 @@ namespace Pendu
         /// <summary>
         /// Manage the end of the game
         /// </summary>
-        private void End()
+        private void End(Word word)
         {
             if (_isWon)
             {
@@ -159,7 +159,7 @@ namespace Pendu
             }
             else
             {
-                _output.ShowLost();
+                _output.ShowLost(word);
             }
         }
 

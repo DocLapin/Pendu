@@ -37,7 +37,7 @@ namespace Pendu
         /// <summary>
         /// Tells the player that he lost
         /// </summary>
-        void ShowLost();
+        void ShowLost(Word word);
 
         /// <summary>
         /// Tells the player that he has won
